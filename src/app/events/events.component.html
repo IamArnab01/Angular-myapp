@@ -1,0 +1,50 @@
+<div class="container">
+  <p-card
+    class="th-card"
+    styleClass="ui-card-shadow"
+    *ngFor="let data of Event_data"
+  >
+    <p-header>
+      <div class="event-img-card">
+        <img src="{{ data.url }}" alt="" class="img-card" />
+        <div class="details">
+          <div class="details-img"></div>
+          {{ data.company_name }}
+        </div>
+        <div class="reg-count-div">
+          <div class="reg-count">
+            <span
+              ><i class="pi pi-user" style="margin-right: '10px';"></i
+            ></span>
+            <span>
+              {{ data.count }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </p-header>
+    <div class="card-body">
+      <div>
+        <p class="title-1">{{ data.title }}</p>
+        <p class="header">
+          {{ data.header }}
+        </p>
+        <p class="deadline">{{ data.deadline }}</p>
+        <div class="countdown-div">
+          <div class="ctn-controll">
+            <span>{{ data.day }} </span> <span> Days</span>
+          </div>
+          :
+          <div class="ctn-controll">
+            <span> {{ data.hour }}</span> <span> Hour</span>
+          </div>
+          :
+          <div class="ctn-controll">
+            <span>{{ data.min }}</span> <span>Minute</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn">Start</div>
+    </div>
+  </p-card>
+</div>
