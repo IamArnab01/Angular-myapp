@@ -9,9 +9,10 @@ import { ToastModule } from 'primeng/toast';
 
 import { CardModule } from 'primeng/card';
 import { EventsComponent } from './events/events.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, EventsComponent],
+  declarations: [AppComponent, EventsComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
