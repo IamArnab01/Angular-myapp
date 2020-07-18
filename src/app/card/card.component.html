@@ -5,30 +5,37 @@
     *ngFor="let data of Job_data"
   >
     <div class="event-card">
-      <div class="tags">
-        <button
-          type="button"
-          pButton
-          label="{{ data.tag1 }}"
-          class="ui-button-success th-tag"
-        ></button>
-        <button
-          type="button"
-          pButton
-          label="{{ data.tag2 }}"
-          class="ui-button-info th-tag"
-        ></button>
-        <button
-          type="button"
-          pButton
-          label="{{ data.tag3 }}"
-          class="ui-button-warning th-tag"
-        ></button>
+      <div class="top-tag-box">
+        <div class="tags">
+          <button
+            type="button"
+            pButton
+            label="{{ data.tag1 }}"
+            class="ui-button-success th-tag"
+          ></button>
+          <button
+            type="button"
+            pButton
+            label="{{ data.tag2 }}"
+            class="ui-button-info th-tag"
+          ></button>
+          <button
+            type="button"
+            pButton
+            label="{{ data.tag3 }}"
+            class="ui-button-warning th-tag"
+          ></button>
+        </div>
+        <div class="event-date">
+          <div class="circle">
+            3
+          </div>
+          <p class="days">Days to go</p>
+        </div>
       </div>
+
       <div class="job-description">
         <div class="job-title">{{ data.job_title }}</div>
-        <!-- <hr class="h-dash" /> -->
-
         <div class="job-addtnl-detail">
           <span class="post">Posted On </span>
           <span style="margin-right: '20px';" class="post-date"

@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
       tag1: 'Full Time',
       tag2: 'Hourly',
       tag3: 'Part Time',
-      job_title: 'Software Engeneer (SDE 2)',
+      job_title: 'Software Engeneer',
       posted: '5 Days Ago',
       count: '25',
       company: 'American Express',

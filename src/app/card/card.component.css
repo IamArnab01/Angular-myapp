@@ -9,7 +9,7 @@
 }
 
 .th-card {
-  width: 40vw;
+  width: 45vw;
   margin: 15px 0;
 }
 
@@ -28,6 +28,12 @@
   border-radius: 3px 3px 0 0;
 }
 
+.top-tag-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tags {
   padding: 0 10px;
   box-sizing: border-box;
@@ -36,6 +42,26 @@
 .th-tag {
   margin-right: 10px !important;
   border-radius: 20px !important;
+}
+
+.event-date {
+  margin-right: 2.5vw;
+  text-align: center;
+}
+
+.days {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ff6f00;
+  border-radius: 50%;
+  padding: 12px 0;
+  font-size: 40px;
+  text-align: center;
 }
 
 .job-description {
@@ -47,13 +73,6 @@
   color: cadetblue;
   text-transform: capitalize;
 }
-
-/* .h-dash {
-  position: absolute;
-  width: calc(100% - 60%);
-  top: 65px;
-  left: 60%;
-} */
 
 .job-addtnl-detail {
   box-sizing: border-box;
@@ -86,7 +105,7 @@
 }
 
 .job-details-body {
-  padding: 10px 0 10px 40px;
+  padding: 80px 0 10px 40px;
 }
 .job-detail-box {
   display: flex;
@@ -154,6 +173,9 @@
 }
 
 @media only screen and (max-width: 780px) {
+  .th-tag {
+    margin-bottom: 10px;
+  }
   .container {
     margin-top: 5vh;
   }
@@ -197,7 +219,7 @@
     font-size: 16px !important;
   }
   .th-tag {
-    margin: 0 !important;
+    margin: 10px 5px 0 0 !important;
     /* padding: 0 !important; */
   }
   .tags {
