@@ -10,23 +10,23 @@
           <button
             type="button"
             pButton
-            label="{{ data.tag1 }}"
+            label="{{ data.event_data.tag1 }}"
             class="ui-button-success th-tag"
           ></button>
           <button
             type="button"
             pButton
-            label="{{ data.tag2 }}"
+            label="{{ data.event_data.tag2 }}"
             class="ui-button-info th-tag"
           ></button>
           <button
             type="button"
             pButton
-            label="{{ data.tag3 }}"
+            label="{{ data.event_data.tag3 }}"
             class="ui-button-warning th-tag"
           ></button>
         </div>
-        <div class="event-date">
+        <div class="event-date" *ngIf="data.event_type == 'upcoming'">
           <div class="circle">
             3
           </div>
@@ -35,16 +35,23 @@
       </div>
 
       <div class="job-description">
-        <div class="job-title">{{ data.job_title }}</div>
+        <div class="job-title">{{ data.event_data.job_title }}</div>
         <div class="job-addtnl-detail">
           <span class="post">Posted On </span>
           <span style="margin-right: '20px';" class="post-date"
-            >{{ data.posted }}
+            >{{ data.event_data.posted }}
           </span>
           <span class="reg-icon"><i class="pi pi-user"></i> </span
-          ><span class="reg-cnt"> {{ data.count }}</span>
+          ><span class="reg-cnt"> {{ data.event_data.count }}</span>
         </div>
       </div>
+      <div class="status-div" *ngIf="data.event_type == 'live'">
+        <span class="status-text">Status : </span>
+        <span class="status" style="font-weight: 600;"
+          >{{ data.event_data.status }}
+        </span>
+      </div>
+
       <hr style="width: '90%';" />
     </div>
     <div class="card-body">
@@ -56,7 +63,7 @@
             </div>
             <div class="content-box">
               <p class="title">Company</p>
-              <p class="content">{{ data.company }}</p>
+              <p class="content">{{ data.event_data.company }}</p>
             </div>
           </div>
           <div class="box">
@@ -65,7 +72,7 @@
             </div>
             <div class="content-box">
               <p class="title">Package</p>
-              <p class="content">{{ data.package }}</p>
+              <p class="content">{{ data.event_data.package }}</p>
             </div>
           </div>
         </div>
@@ -76,7 +83,7 @@
             </div>
             <div class="content-box">
               <p class="title">Job Type</p>
-              <p class="content">{{ data.job_type }}</p>
+              <p class="content">{{ data.event_data.job_type }}</p>
             </div>
           </div>
           <div class="box">
@@ -85,7 +92,7 @@
             </div>
             <div class="content-box">
               <p class="title">Location</p>
-              <p class="content">{{ data.location }}</p>
+              <p class="content">{{ data.event_data.location }}</p>
             </div>
           </div>
         </div>
