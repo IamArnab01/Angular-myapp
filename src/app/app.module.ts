@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 
+import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { EventsComponent } from './events/events.component';
 import { CardComponent } from './card/card.component';
@@ -19,6 +20,7 @@ import { CardComponent } from './card/card.component';
     ButtonModule,
     ToastModule,
     CardModule,
+    TabViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

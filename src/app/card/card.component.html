@@ -1,103 +1,215 @@
-<div class="container">
-  <p-card
-    class="th-card"
-    styleClass="ui-card-shadow"
-    *ngFor="let data of Job_data"
-  >
-    <div class="event-card">
-      <div class="top-tag-box">
-        <div class="tags">
-          <button
-            type="button"
-            pButton
-            label="{{ data.event_data.tag1 }}"
-            class="ui-button-success th-tag"
-          ></button>
-          <button
-            type="button"
-            pButton
-            label="{{ data.event_data.tag2 }}"
-            class="ui-button-info th-tag"
-          ></button>
-          <button
-            type="button"
-            pButton
-            label="{{ data.event_data.tag3 }}"
-            class="ui-button-warning th-tag"
-          ></button>
-        </div>
-        <div class="event-date" *ngIf="data.event_type == 'upcoming'">
-          <div class="circle">
-            3
+<p-tabView class="tab-container">
+  <!-- upcoming events -->
+  <p-tabPanel header="Upcoming">
+    <div class="container">
+      <p-card
+        class="th-card"
+        styleClass="ui-card-shadow"
+        *ngFor="let data of upcoming_data"
+      >
+        <div class="event-card">
+          <div class="top-tag-box">
+            <div class="tags">
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag1 }}"
+                class="ui-button-success th-tag"
+              ></button>
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag2 }}"
+                class="ui-button-info th-tag"
+              ></button>
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag3 }}"
+                class="ui-button-warning th-tag"
+              ></button>
+            </div>
+            <div class="event-date" *ngIf="data.event_type == 'upcoming'">
+              <div class="circle">
+                3
+              </div>
+              <p class="days">Days to go</p>
+            </div>
           </div>
-          <p class="days">Days to go</p>
-        </div>
-      </div>
 
-      <div class="job-description">
-        <div class="job-title">{{ data.event_data.job_title }}</div>
-        <div class="job-addtnl-detail">
-          <span class="post">Posted On </span>
-          <span style="margin-right: '20px';" class="post-date"
-            >{{ data.event_data.posted }}
-          </span>
-          <span class="reg-icon"><i class="pi pi-user"></i> </span
-          ><span class="reg-cnt"> {{ data.event_data.count }}</span>
-        </div>
-      </div>
-      <div class="status-div" *ngIf="data.event_type == 'live'">
-        <span class="status-text">Status : </span>
-        <span class="status" style="font-weight: 600;"
-          >{{ data.event_data.status }}
-        </span>
-      </div>
+          <div class="job-description">
+            <div class="job-title">{{ data.job_title }}</div>
+            <div class="job-addtnl-detail">
+              <span class="post">Posted On </span>
+              <span style="margin-right: '20px';" class="post-date"
+                >{{ data.posted }}
+              </span>
+              <span class="reg-icon"><i class="pi pi-user"></i> </span
+              ><span class="reg-cnt"> {{ data.count }}</span>
+            </div>
+          </div>
 
-      <hr style="width: '90%';" />
-    </div>
-    <div class="card-body">
-      <div class="job-details-body">
-        <div class="job-detail-box">
-          <div class="box">
-            <div class="round">
-              <img src="assets/company.png" alt="Company" />
-            </div>
-            <div class="content-box">
-              <p class="title">Company</p>
-              <p class="content">{{ data.event_data.company }}</p>
-            </div>
+          <div class="status-div" *ngIf="data.event_tye == 'live'">
+            <span class="status-text">Status : </span>
+            <span class="status" style="font-weight: 600;"
+              >{{ data.status }}
+            </span>
           </div>
-          <div class="box">
-            <div class="round">
-              <img src="assets/dollar.png" alt="Company" />
+          <hr style="width: '90%';" />
+        </div>
+        <div class="card-body">
+          <div class="job-details-body">
+            <div class="job-detail-box">
+              <div class="box">
+                <div class="round">
+                  <img src="assets/company.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Company</p>
+                  <p class="content">{{ data.company }}</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="round">
+                  <img src="assets/dollar.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Package</p>
+                  <p class="content">{{ data.package }}</p>
+                </div>
+              </div>
             </div>
-            <div class="content-box">
-              <p class="title">Package</p>
-              <p class="content">{{ data.event_data.package }}</p>
+            <div class="job-detail-box">
+              <div class="box">
+                <div class="round">
+                  <img src="assets/job.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Job Type</p>
+                  <p class="content">{{ data.job_type }}</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="round">
+                  <img src="assets/location.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Location</p>
+                  <p class="content">{{ data.location }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="job-detail-box">
-          <div class="box">
-            <div class="round">
-              <img src="assets/job.png" alt="Company" />
+        <div class="btn">View Job</div>
+      </p-card>
+    </div>
+  </p-tabPanel>
+  <!-- live events -->
+  <p-tabPanel header="Live">
+    <div class="container">
+      <p-card
+        class="th-card"
+        styleClass="ui-card-shadow"
+        *ngFor="let data of live_data"
+      >
+        <div class="event-card">
+          <div class="top-tag-box">
+            <div class="tags">
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag1 }}"
+                class="ui-button-success th-tag"
+              ></button>
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag2 }}"
+                class="ui-button-info th-tag"
+              ></button>
+              <button
+                type="button"
+                pButton
+                label="{{ data.tag3 }}"
+                class="ui-button-warning th-tag"
+              ></button>
             </div>
-            <div class="content-box">
-              <p class="title">Job Type</p>
-              <p class="content">{{ data.event_data.job_type }}</p>
+            <div class="event-date" *ngIf="data.event_type == 'upcoming'">
+              <div class="circle">
+                3
+              </div>
+              <p class="days">Days to go</p>
             </div>
           </div>
-          <div class="box">
-            <div class="round">
-              <img src="assets/location.png" alt="Company" />
+
+          <div class="job-description">
+            <div class="job-title">{{ data.job_title }}</div>
+            <div class="job-addtnl-detail">
+              <span class="post">Posted On </span>
+              <span style="margin-right: '20px';" class="post-date"
+                >{{ data.posted }}
+              </span>
+              <span class="reg-icon"><i class="pi pi-user"></i> </span
+              ><span class="reg-cnt"> {{ data.count }}</span>
             </div>
-            <div class="content-box">
-              <p class="title">Location</p>
-              <p class="content">{{ data.event_data.location }}</p>
+          </div>
+          <div class="status-div" *ngIf="data.event_type == 'live'">
+            <span class="status-text">Status : </span>
+            <span class="status" style="font-weight: 600;"
+              >{{ data.status }}
+            </span>
+          </div>
+
+          <hr style="width: '90%';" />
+        </div>
+        <div class="card-body">
+          <div class="job-details-body">
+            <div class="job-detail-box">
+              <div class="box">
+                <div class="round">
+                  <img src="assets/company.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Company</p>
+                  <p class="content">{{ data.company }}</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="round">
+                  <img src="assets/dollar.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Package</p>
+                  <p class="content">{{ data.package }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="job-detail-box">
+              <div class="box">
+                <div class="round">
+                  <img src="assets/job.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Job Type</p>
+                  <p class="content">{{ data.job_type }}</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="round">
+                  <img src="assets/location.png" alt="Company" />
+                </div>
+                <div class="content-box">
+                  <p class="title">Location</p>
+                  <p class="content">{{ data.location }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="btn">View Job</div>
+      </p-card>
     </div>
-    <div class="btn">View Job</div>
-  </p-card>
-</div>
+  </p-tabPanel>
+  <p-tabPanel header="Previous"> </p-tabPanel>
+</p-tabView>
