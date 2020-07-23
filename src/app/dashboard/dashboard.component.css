@@ -1,0 +1,17 @@
+.searchbar-input {
+  border: none !important;
+  border-radius: 20px !important;
+}
+.table-row {
+  /* background-color: #888 !important; */
+  padding: 20px 0 !important;
+  border: none !important;
+}
+
+.table-data {
+  padding: 10px 50px;
+}
+
+.ui-table-wrapper {
+  padding: 0 50px !important;
+}

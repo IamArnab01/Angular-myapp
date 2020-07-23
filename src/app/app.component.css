@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 36px;
+  color: coral;
+  font-style: italic;
+  font-weight: 600;
+  font-family: cursive;
+}
