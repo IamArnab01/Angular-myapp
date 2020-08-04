@@ -1,0 +1,23 @@
+<div class="wraper">
+  <div class="container">
+    <p-card class="th-card" styleClass="ui-card-shadow">
+      <div class="event-card" *ngFor="let data of Data">
+        <div class="job-description">
+          <div class="job-addtnl-detail">
+            <span style="margin-right: '20px';" class="post-date"
+              >{{ data.posted }}
+            </span>
+            <span class="reg-icon" style="margin-right: '20px';"
+              ><i class="pi pi-heart"></i>
+            </span>
+            <span class="avatar" style="margin-right: '20px';"
+              ><img src="{{ data.src }}" alt="" class="avatar-img" />
+            </span>
+          </div>
+        </div>
+
+        <hr style="width: '90%';" />
+      </div>
+    </p-card>
+  </div>
+</div>
