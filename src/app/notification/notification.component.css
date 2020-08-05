@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  /* margin-top: 30px;
+  margin-bottom: 20px; */
 }
 
 .container {
@@ -12,8 +14,26 @@
   flex-wrap: wrap;
 }
 
+.searchbar-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.searchbar-input {
+  text-align: center;
+  border-radius: 20px !important;
+  margin-left: 10px !important;
+}
+
 .th-card {
-  margin: 15px 0;
+  margin: 25px 0;
   width: 75vw;
 }
 
@@ -77,6 +97,7 @@
   font-weight: 600;
   color: #dc143c;
 }
+
 .hz-line {
   width: 90%;
   border: none;
@@ -84,35 +105,26 @@
   height: 1px;
 }
 
-@media only screen and (min-width: 1020px) and (max-width: 1260px) {
+.vertical-top,
+.vertical-bottom {
+  display: inline-block;
+  border-left: 2.5px solid #ccc;
+  position: absolute;
+  margin-top: 10px;
+  height: 5%;
+  left: 17.5%;
+}
+
+.vertical-bottom {
+  bottom: 0;
+}
+
+@media only screen and (min-width: 1020px) {
   .day-box {
-    margin-left: 2.5vw !important;
+    margin-left: 12vw !important;
   }
 }
 
-@media only screen and (min-width: 1280px) and (max-width: 1356px) {
-  .day-box {
-    margin-left: 3.5vw !important;
-  }
-}
-
-@media only screen and (min-width: 1360px) and (max-width: 1400px) {
-  .day-box {
-    margin-left: 4vw !important;
-  }
-}
-
-@media only screen and (min-width: 1440px) and (max-width: 1600px) {
-  .day-box {
-    margin-left: 4.5vw !important;
-  }
-}
-
-@media only screen and (min-width: 1900px) {
-  .day-box {
-    margin-left: 7vw !important;
-  }
-}
 @media only screen and (max-width: 780px) {
   /* .container {
     margin-top: 5vh;

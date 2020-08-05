@@ -1,7 +1,22 @@
+<div class="searchbar-box">
+  <div class="searchbar">
+    <i class="pi pi-search" style="margin: 5px 5px 0 0; font-size: '20px';"></i>
+    <input
+      type="text"
+      pInputText
+      size="40"
+      placeholder="Type here for search"
+      (input)="dt.filterGlobal($event.target.value, 'contains')"
+      class="searchbar-input"
+    />
+  </div>
+</div>
+
 <div *ngFor="let data of Data">
   <div class="day-box">
     <p class="day">{{ data.day }}</p>
   </div>
+  <!-- <div class="vertical-top"></div> -->
   <div class="wraper">
     <div class="container">
       <p-card class="th-card" styleClass="ui-card-shadow">
@@ -28,5 +43,6 @@
         </div>
       </p-card>
     </div>
+    <!-- <div class="vertical-bottom"></div> -->
   </div>
 </div>
