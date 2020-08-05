@@ -1,61 +1,30 @@
-<div>
+<div *ngFor="let data of Data">
   <div class="day-box">
-    <p class="day">Today</p>
+    <p class="day">{{ data.day }}</p>
   </div>
   <div class="wraper">
     <div class="container">
       <p-card class="th-card" styleClass="ui-card-shadow">
-        <div *ngFor="let data of Data">
+        <div *ngFor="let day_data of data.days_data">
           <div class="notify-card">
             <div class="icon-box">
               <span style="margin-right: '20px';" class="post-date"
-                >{{ data.posted }}
+                >{{ day_data.posted }}
               </span>
               <span class="emoji" style="margin-right: '20px';"
                 ><i class="pi pi-heart"></i>
               </span>
               <span style="margin-right: '20px';"
-                ><img src="{{ data.src }}" alt="" class="avatar" />
+                ><img src="{{ day_data.src }}" alt="" class="avatar" />
               </span>
             </div>
             <div>
-              <h3 class="header">{{ data.header }}</h3>
-              <p class="content">{{ data.content }}</p>
-              <p class="button">{{ data.button }}</p>
+              <h3 class="header">{{ day_data.header }}</h3>
+              <p class="content">{{ day_data.content }}</p>
+              <p class="button">{{ day_data.button }}</p>
             </div>
           </div>
-
-          <hr style="width: '90%';" />
-        </div>
-      </p-card>
-    </div>
-  </div>
-
-  <!--  -->
-  <div class="wraper">
-    <div class="container">
-      <p-card class="th-card" styleClass="ui-card-shadow">
-        <div *ngFor="let data of Data">
-          <div class="notify-card">
-            <div class="icon-box">
-              <span style="margin-right: '20px';" class="post-date"
-                >{{ data.posted }}
-              </span>
-              <span class="emoji" style="margin-right: '20px';"
-                ><i class="pi pi-heart"></i>
-              </span>
-              <span style="margin-right: '20px';"
-                ><img src="{{ data.src }}" alt="" class="avatar" />
-              </span>
-            </div>
-            <div>
-              <h3 class="header">{{ data.header }}</h3>
-              <p class="content">{{ data.content }}</p>
-              <p class="button">{{ data.button }}</p>
-            </div>
-          </div>
-
-          <hr style="width: '90%';" />
+          <hr class="hz-line" />
         </div>
       </p-card>
     </div>

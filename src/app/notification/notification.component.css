@@ -17,18 +17,18 @@
   width: 75vw;
 }
 
-/* .day-box {
-  display: flex;
-  justify-content: center;
-} */
 .day {
   margin: 0;
   background-color: rebeccapurple;
-  width: 100px;
+  max-width: 160px;
   text-align: center;
-  border-radius: 40%;
+  border-radius: 25px;
   font-size: 22px;
-  padding: 8px;
+  /* padding: 8px; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .notify-card {
   padding: 20px;
@@ -77,11 +77,46 @@
   font-weight: 600;
   color: #dc143c;
 }
+.hz-line {
+  width: 90%;
+  border: none;
+  background-color: salmon;
+  height: 1px;
+}
 
-@media only screen and (max-width: 780px) {
-  .container {
-    /* margin-top: 5vh; */
+@media only screen and (min-width: 1020px) and (max-width: 1260px) {
+  .day-box {
+    margin-left: 2.5vw !important;
   }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1356px) {
+  .day-box {
+    margin-left: 3.5vw !important;
+  }
+}
+
+@media only screen and (min-width: 1360px) and (max-width: 1400px) {
+  .day-box {
+    margin-left: 4vw !important;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1600px) {
+  .day-box {
+    margin-left: 4.5vw !important;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .day-box {
+    margin-left: 7vw !important;
+  }
+}
+@media only screen and (max-width: 780px) {
+  /* .container {
+    margin-top: 5vh;
+  } */
   .th-card {
     margin-bottom: 20px !important;
     width: 85vw;
@@ -108,5 +143,16 @@
   .header,
   .button {
     font-size: 12px;
+  }
+
+  .day-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .day {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
   }
 }
