@@ -1,0 +1,90 @@
+.th-container {
+  border: 1px solid #c8c8c8 !important;
+}
+.th-top-div {
+  background-color: cadetblue;
+  padding: 16px;
+  color: #fff;
+}
+.th-table-caption {
+  background-color: #fff !important;
+}
+
+.th-table-row {
+  background-color: #fff !important;
+  border-bottom: 1px solid #c8c8c8 !important;
+  text-align: center !important;
+}
+
+.th-table-col {
+  border: none !important;
+  padding: 0px !important;
+}
+
+.th-table-col-1 {
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.th-table-col-2 {
+  border-left: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.th-table-header-col {
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.th-table-header-col-1 {
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.th-table-header-col-2 {
+  border-left: none !important;
+  border-bottom: none !important;
+}
+
+.search-input {
+  border: none !important;
+  background-color: inherit !important;
+}
+.th-circle {
+  font-size: 24px;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #ff6ff0;
+  border-radius: 50%;
+}
+
+.th-name {
+  color: lightblue;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.th-code {
+  color: lightblue;
+  font-size: 18px;
+}
+
+.th-applicant-id {
+  font-size: 14px;
+  color: #999;
+  margin-top: 0;
+}
+
+.th-status,
+.th-issue,
+.th-date,
+.th-assignment {
+  font-size: 16px;
+  color: #999;
+}

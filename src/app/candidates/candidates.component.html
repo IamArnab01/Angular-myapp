@@ -1,0 +1,86 @@
+<p-toast></p-toast>
+<div class="p-pl-4 p-pr-4">
+  <div class="th-container">
+    <div class="th-top-div">
+      <div style="font-size: 28px;" class="p-mb-3">Candidates</div>
+      <div>All Candidates</div>
+    </div>
+    <div class="p-pl-5 p-pr-5 p-pt-4 p-pb-4">
+      <div class="p-mb-4 p-ml-1">
+        <span style="font-size: 24px;"> All Candidates | </span> 8 Candidates
+      </div>
+      <p-table [value]="products">
+        <ng-template pTemplate="caption" class="th-table-caption">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            <span class="p-input-icon-left p-d-flex p-ai-center">
+              <i class="pi pi-search p-mr-3"></i>
+              <input
+                pInputText
+                type="text"
+                placeholder="Search"
+                class="search-input"
+                style="font-size: 18px !important;"
+              />
+            </span>
+            <div class="p-input-icon-right">
+              <span style="margin: 0 10px; cursor: pointer;"
+                ><i class="pi pi-download" style="margin: 0 20px;"></i
+              ></span>
+              <span
+                style="margin: 0 10px; cursor: pointer;"
+                class="p-input-icon-left"
+                >...</span
+              >
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 3rem;" class="th-table-header-col-1">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th class="th-table-header-col">Name <p-sortIcon></p-sortIcon></th>
+            <th class="th-table-header-col p-text-right">Status</th>
+            <th class="th-table-header-col">Issues</th>
+            <th class="th-table-header-col">Start Date</th>
+            <th class="th-table-header-col">Hire Code</th>
+            <th class="th-table-header-col">Assignment</th>
+            <th class="th-table-header-col-2"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr class="th-table-row">
+            <td class="th-table-col-1">
+              <p-tableCheckbox [value]="product"></p-tableCheckbox>
+            </td>
+            <td class="th-table-col">
+              <div class="p-d-flex p-jc-between p-ai-center">
+                <span class="th-circle">{{ product.name_abbr }} </span>
+                <div>
+                  <p class="th-name">{{ product.fname + product.lname }}</p>
+                  <p class="th-applicant-id">Applicant ID: {{ product.id }}</p>
+                </div>
+              </div>
+            </td>
+            <td class="th-table-col th-status p-text-right">
+              {{ product.status }}
+            </td>
+            <td class="th-table-col th-issue">{{ product.issues }}</td>
+            <td class="th-table-col th-date">{{ product.start_date }}</td>
+            <td class="th-table-col th-code">
+              {{ product.hire_code }}
+            </td>
+            <td class="th-table-col th-assignment">
+              <div>
+                {{ product.assignment }}
+              </div>
+            </td>
+            <td class="th-table-col-2 th-assignment" style="cursor: pointer;">
+              <div>...</div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
