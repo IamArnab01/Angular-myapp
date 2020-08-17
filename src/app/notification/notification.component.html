@@ -1,48 +1,66 @@
-<div class="searchbar-box">
-  <div class="searchbar">
-    <i class="pi pi-search" style="margin: 5px 5px 0 0; font-size: '20px';"></i>
-    <input
-      type="text"
-      pInputText
-      size="40"
-      placeholder="Type here for search"
-      (input)="dt.filterGlobal($event.target.value, 'contains')"
-      class="searchbar-input"
-    />
-  </div>
-</div>
-
-<div *ngFor="let data of Data">
-  <div class="day-box">
-    <p class="day">{{ data.day }}</p>
-  </div>
-  <!-- <div class="vertical-top"></div> -->
-  <div class="wraper">
-    <div class="container">
-      <p-card class="th-card" styleClass="ui-card-shadow">
-        <div *ngFor="let day_data of data.days_data">
-          <div class="notify-card">
-            <div class="icon-box">
-              <span style="margin-right: '20px';" class="post-date"
-                >{{ day_data.posted }}
-              </span>
-              <span class="emoji" style="margin-right: '20px';"
-                ><i class="pi pi-heart"></i>
-              </span>
-              <span style="margin-right: '20px';"
-                ><img src="{{ day_data.src }}" alt="" class="avatar" />
-              </span>
-            </div>
-            <div>
-              <h3 class="header">{{ day_data.header }}</h3>
-              <p class="content">{{ day_data.content }}</p>
-              <p class="button">{{ day_data.button }}</p>
-            </div>
-          </div>
-          <hr class="hz-line" />
-        </div>
-      </p-card>
+<div class="root">
+  <div class="searchbar-box">
+    <div class="searchbar">
+      <input
+        type="text"
+        pInputText
+        placeholder="What are you looking for?"
+        class="searchbar-input"
+      />
+      <i class="pi pi-search search-icon" style="font-size: 16px;"></i>
+      <i class="pi pi-caret-down" style="margin-left: 5px;"></i>
     </div>
-    <!-- <div class="vertical-bottom"></div> -->
+  </div>
+
+  <div class="media-box">
+    <div class="media">
+      <span class="camera">
+        <img src="assets/camera.png" alt="" />
+      </span>
+      <span class="e-book">
+        <img src="assets/e-reader.png" alt="" style="width: 30px;" />
+      </span>
+      <span class="music">
+        <img src="assets/video.png" alt="" />
+      </span>
+      <span class="video">
+        <img src="assets/music.png" alt="" />
+      </span>
+    </div>
+  </div>
+
+  <div *ngFor="let data of Data">
+    <div class="day-box">
+      <p class="day">{{ data.day }}</p>
+    </div>
+    <!-- <div class="vertical-top"></div> -->
+    <div class="wraper">
+      <div class="container">
+        <p-card class="th-card" styleClass="ui-card-shadow">
+          <div *ngFor="let day_data of data.days_data">
+            <div class="notify-card">
+              <div class="icon-box">
+                <span style="margin-right: '20px';" class="post-date"
+                  >{{ day_data.posted }}
+                </span>
+                <span class="emoji" style="margin-right: '20px';"
+                  ><i class="pi pi-heart"></i>
+                </span>
+                <span style="margin-right: '20px';"
+                  ><img src="{{ day_data.src }}" alt="" class="avatar" />
+                </span>
+              </div>
+              <div>
+                <h3 class="header">{{ day_data.header }}</h3>
+                <p class="content">{{ day_data.content }}</p>
+                <p class="button">{{ day_data.button }}</p>
+              </div>
+            </div>
+            <hr class="hz-line" />
+          </div>
+        </p-card>
+      </div>
+      <!-- <div class="vertical-bottom"></div> -->
+    </div>
   </div>
 </div>
