@@ -40,11 +40,9 @@
               <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
             </th>
             <th class="th-table-header-col">Name <p-sortIcon></p-sortIcon></th>
-            <th class="th-table-header-col p-text-right">Status</th>
-            <th class="th-table-header-col">Issues</th>
-            <th class="th-table-header-col">Start Date</th>
-            <th class="th-table-header-col">Hire Code</th>
-            <th class="th-table-header-col">Assignment</th>
+            <th class="th-table-header-col">Status</th>
+            <th class="th-table-header-col">Applied Date</th>
+            <th class="th-table-header-col">View Candidate</th>
             <th class="th-table-header-col-2"></th>
           </tr>
         </ng-template>
@@ -54,29 +52,31 @@
               <p-tableCheckbox [value]="product"></p-tableCheckbox>
             </td>
             <td class="th-table-col">
-              <div class="p-d-flex p-jc-between p-ai-center">
+              <div class="p-d-flex p-jc-around p-ai-center">
                 <span class="th-circle">{{ product.name_abbr }} </span>
                 <div>
                   <p class="th-name">{{ product.fname + product.lname }}</p>
-                  <p class="th-applicant-id">Applicant ID: {{ product.id }}</p>
                 </div>
               </div>
             </td>
-            <td class="th-table-col th-status p-text-right">
+            <td class="th-table-col th-status">
               {{ product.status }}
             </td>
-            <td class="th-table-col th-issue">{{ product.issues }}</td>
             <td class="th-table-col th-date">{{ product.start_date }}</td>
-            <td class="th-table-col th-code">
-              {{ product.hire_code }}
+            <td class="th-table-col th-date">
+              <p-button
+                icon="pi pi-external-link"
+                label="View"
+                [routerLink]="['/events']"
+              ></p-button>
             </td>
-            <td class="th-table-col th-assignment">
-              <div>
-                {{ product.assignment }}
-              </div>
-            </td>
-            <td class="th-table-col-2 th-assignment" style="cursor: pointer;">
-              <div>...</div>
+            <td class="th-table-col-2 th-assignment">
+              <span
+                (click)="showModal()"
+                style="font-size: 36px; cursor: pointer;"
+              >
+                ...
+              </span>
             </td>
           </tr>
         </ng-template>
@@ -84,3 +84,29 @@
     </div>
   </div>
 </div>
+
+<p-dialog
+  [(visible)]="displayModal"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-evenly">
+    <p-button
+      icon="pi pi-check"
+      label="Select the Candidate"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      icon="pi pi-check"
+      label="Promote to nextround"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      icon="pi pi-times"
+      label="Reject the Candidate"
+      styleClass="p-button-text"
+    ></p-button>
+  </div>
+</p-dialog>
+
+<br /><br /><br /><br /><br /><br /><br />

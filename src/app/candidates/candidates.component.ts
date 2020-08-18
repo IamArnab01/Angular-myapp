@@ -17,6 +17,12 @@ import { ConfirmationService } from 'primeng/api';
   providers: [MessageService, ConfirmationService],
 })
 export class CandidatesComponent implements OnInit {
+  displayModal: boolean = false;
+
+  showModal() {
+    this.displayModal = true;
+  }
+
   products: Object[] = [
     {
       fname: 'Janet ',
@@ -40,6 +46,29 @@ export class CandidatesComponent implements OnInit {
       hire_code: '32569',
       assignment: 'Karl Jenkins',
     },
+    {
+      fname: 'Roy ',
+      lname: 'Guerrero',
+      id: '443',
+      name_abbr: 'RG',
+      status: 'Noot hired',
+      issues: '3',
+      start_date: '24 April 2017',
+      hire_code: '56234',
+      assignment: 'Keith Walters',
+    },
+    {
+      fname: 'Rebeka ',
+      lname: 'Scott',
+      id: '554',
+      name_abbr: 'RS',
+      status: 'Needs reivew',
+      issues: '2',
+      start_date: '04 Oct 2017',
+      hire_code: '45698',
+      assignment: 'Rachel Bishop',
+    },
+    //
     {
       fname: 'Roy ',
       lname: 'Guerrero',
