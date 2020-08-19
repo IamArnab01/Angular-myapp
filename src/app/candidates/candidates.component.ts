@@ -18,15 +18,20 @@ import { ConfirmationService } from 'primeng/api';
 })
 export class CandidatesComponent implements OnInit {
   displayModal: boolean = false;
+  candidateName: String;
 
-  showModal() {
+  showModal(candidate_name) {
     this.displayModal = true;
+    this.candidateName = ' Canidate : ' + candidate_name;
+  }
+
+  hideModal() {
+    this.displayModal = false;
   }
 
   products: Object[] = [
     {
-      fname: 'Janet ',
-      lname: 'Gonzalez',
+      name: 'Janet Gonzalez',
       id: '334',
       name_abbr: 'JG',
       status: 'Ready to Hire',
@@ -36,8 +41,7 @@ export class CandidatesComponent implements OnInit {
       assignment: 'Jonathan Bradly',
     },
     {
-      fname: 'Wayne ',
-      lname: 'Shaw',
+      name: 'Wayne Shaw',
       id: '876',
       name_abbr: 'WS',
       status: 'Needs review',
@@ -47,8 +51,7 @@ export class CandidatesComponent implements OnInit {
       assignment: 'Karl Jenkins',
     },
     {
-      fname: 'Roy ',
-      lname: 'Guerrero',
+      name: 'Roy Guerrero',
       id: '443',
       name_abbr: 'RG',
       status: 'Noot hired',
@@ -58,8 +61,7 @@ export class CandidatesComponent implements OnInit {
       assignment: 'Keith Walters',
     },
     {
-      fname: 'Rebeka ',
-      lname: 'Scott',
+      name: 'Rebeka Scott',
       id: '554',
       name_abbr: 'RS',
       status: 'Needs reivew',
@@ -70,8 +72,7 @@ export class CandidatesComponent implements OnInit {
     },
     //
     {
-      fname: 'Roy ',
-      lname: 'Guerrero',
+      name: 'Roy Guerrero',
       id: '443',
       name_abbr: 'RG',
       status: 'Noot hired',
@@ -81,8 +82,7 @@ export class CandidatesComponent implements OnInit {
       assignment: 'Keith Walters',
     },
     {
-      fname: 'Rebeka ',
-      lname: 'Scott',
+      name: 'Rebeka Scott',
       id: '554',
       name_abbr: 'RS',
       status: 'Needs reivew',
