@@ -1,0 +1,39 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background: beige;
+}
+
+.container-2 {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.img-box {
+  border-radius: 50%;
+  background: #efd8a8;
+  height: 75px;
+  padding: 14px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #363636;
+}
+
+.mail,
+.contact {
+  font-size: 18px;
+  color: #333333;
+  margin-top: 4px;
+}
+
+.card-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}

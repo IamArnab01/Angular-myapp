@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="p-d-flex p-jc-between">
+    <div class="mail-box p-d-flex p-jc-between p-ai-center">
+      <div class="img-box p-mr-4">
+        <img src="assets/mail.png" alt="" class="" style="height: 50px;" />
+      </div>
+
+      <div class="p-d-flex p-flex-column">
+        <span class="title">Email us:</span>
+        <span class="mail">info@expidense.com</span>
+      </div>
+    </div>
+    <div class="call-box p-d-flex p-jc-between p-ai-center">
+      <div class="img-box p-mr-3">
+        <img
+          src="assets/phone.png"
+          alt=""
+          class=""
+          style="width: 50px; height: 50px;"
+        />
+      </div>
+      <div class="p-d-flex p-flex-column">
+        <span class="title">Call us:</span>
+        <span class="contact">12345 67890</span>
+      </div>
+    </div>
+    <div class="media-box p-d-flex p-jc-between p-ai-center">
+      <span class="title p-mr-3">Stay connected with us</span>
+      <div class="img-box p-mr-3">
+        <img src="assets/facebook.png" alt="" class="" style="height: 50px;" />
+      </div>
+      <div class="img-box p-mr-3">
+        <img src="assets/instagram.png" alt="" class="" style="height: 50px;" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="container-2 p-d-flex p-jc-center">
+  <google-map></google-map>
+</div>
+
+<br />
+<br />
+
+<div class="container-2 p-d-flex p-jc-center p-mb-3">
+  Send us a message
+</div>
+
+<div class="container-2 p-d-flex p-jc-center">
+  <p-card
+    [style]="{ width: '360px' }"
+    styleClass="p-card-shadow"
+    *ngFor="let data of CEO_data"
+  >
+    <p-header class="p-d-flex p-jc-center">
+      <img
+        src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg"
+        alt=""
+        class="card-img p-mt-4"
+      />
+    </p-header>
+    <p-subheader class="p-text-center">
+      <p>{{ data.name }}</p>
+      <p>{{ data.position }}</p>
+    </p-subheader>
+
+    <div class="p-d-flex p-jc-center">
+      <img src="assets/facebook.png" alt="" />
+      <img src="assets/instagram.png" alt="" />
+      <img src="" alt="" />
+    </div>
+  </p-card>
+</div>
+
+<br />
+<br />
+<div class="p-d-flex p-jc-evenly">
+  <p-card
+    [style]="{ width: '360px' }"
+    styleClass="p-card-shadow"
+    *ngFor="let data of Team_Data"
+  >
+    <p-header class="p-d-flex p-jc-center">
+      <img
+        src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg"
+        alt=""
+        class="card-img p-mt-4"
+      />
+    </p-header>
+    <p-subheader class="p-text-center">
+      <p>{{ data.name }}</p>
+      <p>{{ data.position }}</p>
+    </p-subheader>
+
+    <div class="p-d-flex p-jc-center">
+      <img src="assets/facebook.png" alt="" />
+      <img src="assets/instagram.png" alt="" />
+      <img src="" alt="" />
+    </div>
+  </p-card>
+</div>
+
+<br />
+<br />

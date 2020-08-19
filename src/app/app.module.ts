@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -20,6 +20,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    GoogleMapsModule,
     AppRoutingModule,
     ButtonModule,
     ToastModule,
