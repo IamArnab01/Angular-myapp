@@ -37,3 +37,19 @@
   height: 160px;
   border-radius: 50%;
 }
+
+.name {
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #363636;
+}
+
+.post {
+  font-size: 20px;
+  color: #999;
+}
+
+.header {
+  font-size: 28px;
+  border-bottom: 5px solid #efd8a8;
+}
