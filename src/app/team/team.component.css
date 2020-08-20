@@ -21,11 +21,18 @@
   min-height: 450px;
 }
 
-.img-box {
+.icon-box,
+.mail-icon-box {
   border-radius: 50%;
   background: #efd8a8;
-  height: 75px;
-  padding: 14px;
+  height: 70px;
+  width: 70px;
+}
+.icon-box {
+  padding: 15px 20px;
+}
+.mail-icon-box {
+  padding: 15px;
 }
 
 .title {
