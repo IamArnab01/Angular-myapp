@@ -23,11 +23,37 @@ export class TeamComponent implements OnInit {
     minZoom: 8,
   };
 
-  CEO_data: Object = [{ name: 'Person1', position: 'CEO' }];
+  CEO_Data: Object = [
+    {
+      src:
+        'https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg',
+      name: 'Person1',
+      post: 'CEO',
+      email: 'ceo@expidence.co.in',
+    },
+  ];
   Team_Data: Object = [
-    { name: 'Person1', position: 'position1' },
-    { name: 'Person2', position: 'position2' },
-    { name: 'Person3', position: 'position3' },
+    {
+      src:
+        'https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg',
+      name: 'Person1',
+      post: 'post1',
+      email: 'person1@expidence.co.in',
+    },
+    {
+      src:
+        'https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg',
+      name: 'Person2',
+      post: 'post2',
+      email: 'person2@expidence.co.in',
+    },
+    {
+      src:
+        'https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/08/18/Pictures/_339b2650-e110-11ea-983a-0aba0c178f59.jpg',
+      name: 'Person3',
+      post: 'post3',
+      email: 'person3@expidence.co.in',
+    },
   ];
 
   ngOnInit() {

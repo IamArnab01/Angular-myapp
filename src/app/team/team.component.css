@@ -12,6 +12,15 @@
   margin: 0 auto;
 }
 
+.card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-wraper {
+  min-height: 450px;
+}
+
 .img-box {
   border-radius: 50%;
   background: #efd8a8;
@@ -42,14 +51,34 @@
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #363636;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .post {
   font-size: 20px;
   color: #999;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.email {
+  font-size: 18px;
+  margin-top: 0;
+  color: #999;
 }
 
 .header {
-  font-size: 28px;
+  font-size: 40px;
+  color: #333;
   border-bottom: 5px solid #efd8a8;
+}
+
+.read-more-btn {
+  background: #4076d9;
+  width: 100px;
+  padding: 10px;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 8px;
 }
