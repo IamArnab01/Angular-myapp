@@ -142,13 +142,13 @@ export class OverviewComponent implements OnInit {
       },
       {
         breakpoint: '768px',
-        numVisible: 2,
+        numVisible: 1,
         numScroll: 1,
       },
       {
         breakpoint: '560px',
         numVisible: 1,
-        numScroll: 1,
+        numScroll: 2,
       },
     ];
   }

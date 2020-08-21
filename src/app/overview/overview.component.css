@@ -1,6 +1,8 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+@media only screen and (min-width: 1120px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 .circle {
@@ -48,4 +50,36 @@
   font-size: 18px;
   min-height: 240px;
   text-align: center;
+}
+
+@media only screen and (max-width: 780px) {
+  .container {
+    padding: 0 15px;
+  }
+  .student,
+  .cerficate,
+  .award-title,
+  .testimonial {
+    font-size: 24px;
+    color: #1d9f87;
+  }
+  .award,
+  .certi-name {
+    font-size: 18px;
+  }
+  .circle {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px !important;
+  }
+  .card-image {
+    width: 128px;
+    height: 128px;
+  }
+  .card-title {
+    font-size: 15px;
+  }
+  .card-details {
+    padding: 10px !important;
+  }
 }

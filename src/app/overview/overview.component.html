@@ -5,7 +5,7 @@
       <span class="circle p-mr-3"></span>
       <span class="student">Students</span>
     </div>
-    <div class="p-d-flex p-jc-evenly">
+    <div class="p-d-flex p-jc-evenly" style="flex-wrap: wrap !important;">
       <div style="width: 560px;">
         <p-chart type="pie" [data]="gender_data" [options]="options"></p-chart>
       </div>
@@ -22,7 +22,7 @@
       <span class="circle p-mr-3"></span>
       <span class="cerficate">Ceritificate and Appreciations</span>
     </div>
-    <div class="p-d-flex p-jc-around">
+    <div class="p-d-flex p-jc-around" style="flex-wrap: wrap !important;">
       <div *ngFor="let certi_data of CertificateData">
         <div class="p-text-center">
           <div>
@@ -42,9 +42,9 @@
       <span class="circle p-mr-3"></span>
       <span class="award-title"> Awards and Medals</span>
     </div>
-    <div class="p-d-flex p-jc-around">
+    <div class="p-d-flex p-jc-around" style="flex-wrap: wrap !important;">
       <div
-        class="p-text-center"
+        class="p-text-center p-mb-3"
         *ngFor="let award of AwardsData"
         style="width: 280px;"
       >
