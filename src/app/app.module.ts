@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
-import { GoogleMapsModule } from '@angular/google-maps';
-import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ChartModule } from 'primeng/chart';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +33,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     TableModule,
     DialogModule,
     CheckboxModule,
+    ChartModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

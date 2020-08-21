@@ -1,3 +1,88 @@
 <div class="container">
-  Overview page
+  <!-- pie chart -->
+  <div class="p-mb-5">
+    <div class="p-d-flex p-ai-center p-mb-4">
+      <span class="circle p-mr-3"></span>
+      <span class="student">Students</span>
+    </div>
+    <div class="p-d-flex p-jc-evenly">
+      <div style="width: 560px;">
+        <p-chart type="pie" [data]="gender_data" [options]="options"></p-chart>
+      </div>
+      <div style="width: 560px;">
+        <p-chart type="pie" [data]="dept_data" [options]="options"></p-chart>
+      </div>
+    </div>
+  </div>
+  <!-- pe chart ends -->
+
+  <!-- Cerficate  -->
+  <div class="p-mb-5">
+    <div class="p-d-flex p-ai-center p-mb-4">
+      <span class="circle p-mr-3"></span>
+      <span class="cerficate">Ceritificate and Appreciations</span>
+    </div>
+    <div class="p-d-flex p-jc-around">
+      <div *ngFor="let certi_data of CertificateData">
+        <div class="p-text-center">
+          <div>
+            <img src="{{ certi_data.src }}" alt="" class="certi-logo" />
+          </div>
+          <p class="certi-name">{{ certi_data.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cerficate ends -->
+
+  <!-- Awards  -->
+
+  <div class="p-mb-5">
+    <div class="p-d-flex p-ai-center p-mb-4">
+      <span class="circle p-mr-3"></span>
+      <span class="award-title"> Awards and Medals</span>
+    </div>
+    <div class="p-d-flex p-jc-around">
+      <div
+        class="p-text-center"
+        *ngFor="let award of AwardsData"
+        style="width: 280px;"
+      >
+        <img src="{{ award.src }}" alt="" />
+        <p class="p-mb-0 award">{{ award.type }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Awards ends -->
+
+  <!-- testimonial -->
+
+  <div>
+    <div class="p-d-flex p-ai-center p-mb-4">
+      <span class="circle p-mr-3"></span>
+      <span class="testimonial"> Testimonials</span>
+    </div>
+    <p-carousel
+      [value]="testimonial_data"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="false"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-data pTemplate="item">
+        <div class="p-d-flex p-jc-around p-p-2">
+          <div class="card-details">
+            <div class="p-d-flex p-jc-center">
+              <img src="{{ data.src }}" alt="" class="card-image" />
+            </div>
+            <div class="card-title">
+              <p class="p-mb-0">{{ data.content }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <!-- testimonial ends -->
 </div>
