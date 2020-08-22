@@ -1,0 +1,77 @@
+<div class="container">
+  <!-- header section -->
+  <div>
+    <p class="p-text-center header p-mt-0 p-mb-4">Academics</p>
+    <div class="p-d-flex p-jc-between wraper">
+      <div *ngFor="let data of HeaderData">
+        <div class="p-d-flex p-ai-center mob-wraper">
+          <div class="mob-img-box">
+            <img src="{{ data.src }}" alt="students" class="image p-mr-4" />
+          </div>
+          <div class="mob-content">
+            <p class="count p-mb-0 p-text-center">{{ data.count }}</p>
+            <p class="span p-mt-1">{{ data.span }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header section ends -->
+  <!-- Academic prog -->
+  <div>
+    <p class="header p-mt-0 p-mb-4 p-mt-5">
+      Academic Proggramme Overview
+    </p>
+    <div class="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eligendi
+      fugit ut numquam veniam repudiandae aliquid, quasi tempora nemo eum,
+      quidem, modi sint perferendis iste quae voluptate voluptatibus maiores
+      inventore! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      Provident eum eos fugiat et vero animi quaerat necessitatibus eligendi hic
+      deleniti magnam, enim ut, dolorum quam. Ratione adipisci accusantium in
+      illo?
+    </div>
+  </div>
+  <!-- Academic prog ends -->
+  <!-- Departments -->
+  <div>
+    <p class="header p-mt-0 p-mb-4 p-mt-5">
+      Departments
+    </p>
+    <div>
+      <ul
+        class="list p-d-flex"
+        *ngFor="let dept_list of DepartmentList; let i = index"
+      >
+        <span class="p-mr-2 list-item">{{ i + 1 }}.</span>
+        <li class="list-item">{{ dept_list.data }}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Departments ends -->
+
+  <!-- Facilities -->
+
+  <div>
+    <p class="header p-mt-0 p-mb-4 p-mt-5">
+      Facilities
+    </p>
+    <div>
+      <ul
+        class="p-d-flex"
+        *ngFor="let list of FacilityList"
+        style="list-style: none !important;"
+      >
+        <img
+          src="{{ list.src }}"
+          alt=""
+          class="p-mr-3 facilility-img"
+          style="width: 32px;"
+        />
+        <li class="list-item-2">{{ list.data }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Facilities ends -->
+</div>

@@ -7,6 +7,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { TeamComponent } from './team/team.component';
 import { OverviewComponent } from './overview/overview.component';
+import { AcademicsComponent } from './academics/academics.component';
 const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'cards', component: CardComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'candidates', component: CandidatesComponent },
   { path: 'team', component: TeamComponent },
   { path: 'overview', component: OverviewComponent },
+  { path: 'academics', component: AcademicsComponent },
 ];
 
 @NgModule({
@@ -30,4 +32,5 @@ export const routingComponents = [
   CandidatesComponent,
   TeamComponent,
   OverviewComponent,
+  AcademicsComponent,
 ];
