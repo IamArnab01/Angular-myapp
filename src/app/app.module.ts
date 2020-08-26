@@ -16,7 +16,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 @NgModule({
   declarations: [AppComponent, routingComponents],
   imports: [
@@ -35,6 +37,9 @@ import { CheckboxModule } from 'primeng/checkbox';
     CheckboxModule,
     ChartModule,
     CarouselModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    InputTextareaModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

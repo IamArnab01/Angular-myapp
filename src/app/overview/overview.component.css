@@ -20,15 +20,19 @@
   color: #1d9f87;
 }
 
-.certi-name {
-  font-size: 22px;
+.certi-name,
+.issue_on,
+.issue_by {
+  font-size: 20px;
   color: #666666;
-  letter-spacing: 1px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  /* letter-spacing: 1px; */
 }
 
 .certi-logo {
   border-radius: 10px;
-  width: 180px;
+  width: 216px;
 }
 
 .award {
@@ -48,8 +52,58 @@
 
 .card-title {
   font-size: 18px;
-  min-height: 240px;
+  min-height: 262px;
   text-align: center;
+}
+
+.add,
+.edit,
+.delete {
+  font-size: 20px;
+}
+
+.add-icon {
+  background: #0852ba;
+  cursor: pointer;
+  padding: 8px 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.edit-icon {
+  background: #689f38;
+  padding: 8px 28px;
+}
+
+.delete-icon {
+  background: #d32f2f;
+  opacity: 0.8;
+  padding: 8px 16px;
+}
+
+.add-btn,
+.edit-btn {
+  color: #fff;
+  font-size: 18px;
+  background: #2196f3;
+  border-radius: 8px;
+  border: none !important;
+  /* border: 0px solid #fff; */
+}
+
+.add-btn {
+  padding: 7px 30px;
+}
+
+.edit-btn {
+  padding: 7px 20px;
 }
 
 @media only screen and (max-width: 780px) {

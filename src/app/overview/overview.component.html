@@ -5,11 +5,11 @@
       <span class="circle p-mr-3"></span>
       <span class="student">Students</span>
     </div>
-    <div class="p-d-flex p-jc-evenly" style="flex-wrap: wrap !important;">
-      <div style="width: 560px;">
+    <div class="p-d-flex p-jc-evenly" style="flex-wrap: wrap !important">
+      <div style="width: 560px">
         <p-chart type="pie" [data]="gender_data" [options]="options"></p-chart>
       </div>
-      <div style="width: 560px;">
+      <div style="width: 560px">
         <p-chart type="pie" [data]="dept_data" [options]="options"></p-chart>
       </div>
     </div>
@@ -17,41 +17,105 @@
   <!-- pe chart ends -->
 
   <!-- Cerficate  -->
+
   <div class="p-mb-5">
-    <div class="p-d-flex p-ai-center p-mb-4">
-      <span class="circle p-mr-3"></span>
-      <span class="cerficate">Ceritificate and Appreciations</span>
-    </div>
-    <div class="p-d-flex p-jc-around" style="flex-wrap: wrap !important;">
-      <div *ngFor="let certi_data of CertificateData">
-        <div class="p-text-center">
-          <div>
-            <img src="{{ certi_data.src }}" alt="" class="certi-logo" />
-          </div>
-          <p class="certi-name">{{ certi_data.name }}</p>
-        </div>
+    <div class="p-d-flex p-mb-4">
+      <div class="p-d-flex p-ai-center p-mr-5">
+        <span class="circle p-mr-3"> </span>
+        <span class="testimonial"> Certificate and Appreciation</span>
+      </div>
+      <div class="p-mt-2 add-icon" (click)="addCertiModal()">
+        <span class="p-mr-3 add"> Add</span>
+        <i class="pi pi-pencil"></i>
       </div>
     </div>
+    <p-carousel
+      [value]="CertificateData"
+      [numVisible]="4"
+      [numScroll]="1"
+      [circular]="false"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-certi_data pTemplate="item">
+        <div class="p-d-flex p-jc-around p-p-2">
+          <div class="">
+            <img src="{{ certi_data.src }}" alt="" class="certi-logo" />
+            <p class="certi-name">{{ certi_data.name }}</p>
+            <p class="issue_by">Issued By : {{ certi_data.organisation }}</p>
+            <p class="issue_on">Issued On: {{ certi_data.issueDate }}</p>
+            <div class="p-mt-3">
+              <div
+                class="p-d-flex p-ai-center p-jc-center edit-icon p-mb-2"
+                (click)="editCertiModal()"
+              >
+                <i class="pi pi-user-edit p-mr-2"></i>
+                <span class="edit">Edit</span>
+              </div>
+              <div
+                class="p-d-flex p-ai-center p-jc-center delete-icon"
+                (click)="delCerti(certi_data.name)"
+              >
+                <span class="delete">Delete</span>
+                <i class="pi pi-trash p-ml-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
   </div>
+
   <!-- Cerficate ends -->
 
   <!-- Awards  -->
 
-  <div class="p-mb-5">
-    <div class="p-d-flex p-ai-center p-mb-4">
-      <span class="circle p-mr-3"></span>
-      <span class="award-title"> Awards and Medals</span>
-    </div>
-    <div class="p-d-flex p-jc-around" style="flex-wrap: wrap !important;">
-      <div
-        class="p-text-center p-mb-3"
-        *ngFor="let award of AwardsData"
-        style="width: 280px;"
-      >
-        <img src="{{ award.src }}" alt="" />
-        <p class="p-mb-0 award">{{ award.type }}</p>
+  <div class="p-mb-5 p-mt-5">
+    <div class="p-d-flex p-mb-4">
+      <div class="p-d-flex p-ai-center p-mr-5">
+        <span class="circle p-mr-3"> </span>
+        <span class="testimonial"> Awards and Medals</span>
+      </div>
+      <div class="p-mt-2 add-icon" (click)="addAwardsModal()">
+        <span class="p-mr-3 add"> Add</span>
+        <i class="pi pi-pencil"></i>
       </div>
     </div>
+    <p-carousel
+      [value]="AwardsData"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="false"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-award pTemplate="item">
+        <div class="p-d-flex p-jc-around p-p-2">
+          <div class="">
+            <div class="p-text-center p-mb-3">
+              <img src="{{ award.src }}" alt="" />
+              <p class="p-mb-0 award">{{ award.type }}</p>
+              <p class="p-mb-0 award">Issue Date: {{ award.issueDate }}</p>
+              <p class="p-mb-0 award">Issued By: {{ award.issuedBy }}</p>
+            </div>
+            <div class="p-d-flex p-jc-around p-mt-3">
+              <div
+                class="p-d-flex p-ai-center edit-icon"
+                (click)="editAwardsModal(award.type)"
+              >
+                <i class="pi pi-user-edit p-mr-2"></i>
+                <span class="edit">Edit</span>
+              </div>
+              <div
+                class="p-d-flex p-ai-center delete-icon"
+                (click)="delAward(award.type)"
+              >
+                <span class="delete">Delete</span>
+                <i class="pi pi-trash p-ml-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
   </div>
 
   <!-- Awards ends -->
@@ -59,10 +123,17 @@
   <!-- testimonial -->
 
   <div>
-    <div class="p-d-flex p-ai-center p-mb-4">
-      <span class="circle p-mr-3"></span>
-      <span class="testimonial"> Testimonials</span>
+    <div class="p-d-flex p-mb-4">
+      <div class="p-d-flex p-ai-center p-mr-5">
+        <span class="circle p-mr-3"> </span>
+        <span class="testimonial"> Testimonials</span>
+      </div>
+      <div class="p-mt-2 add-icon" (click)="addTestimonyModal()">
+        <span class="p-mr-3 add"> Add</span>
+        <i class="pi pi-pencil"></i>
+      </div>
     </div>
+
     <p-carousel
       [value]="testimonial_data"
       [numVisible]="3"
@@ -78,6 +149,24 @@
             </div>
             <div class="card-title">
               <p class="p-mb-0">{{ data.content }}</p>
+              <p class="p-mb-0">~ {{ data.author }} ~</p>
+              <p class="p-mb-0">~~{{ data.role }}~~</p>
+            </div>
+            <div class="p-d-flex p-jc-around p-mt-3">
+              <div
+                class="p-d-flex p-ai-center edit-icon"
+                (click)="editTestimonyModal()"
+              >
+                <i class="pi pi-user-edit p-mr-2"></i>
+                <span class="edit">Edit</span>
+              </div>
+              <div
+                class="p-d-flex p-ai-center delete-icon"
+                (click)="delTestimony()"
+              >
+                <span class="delete">Delete</span>
+                <i class="pi pi-trash p-ml-2"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -86,3 +175,311 @@
   </div>
   <!-- testimonial ends -->
 </div>
+
+<!-- modals -->
+
+<!-- add section -->
+
+<p-dialog
+  header="Add Certificate and Appreciation"
+  [(visible)]="display_add_certi"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Certificate Name</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issue Date</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+      <div>
+        <p class="p-mb-2">Upload Certificate</p>
+        <input
+          class="p-mb-3"
+          type="file"
+          accept="image/*"
+          (change)="onFileChanged($event)"
+        />
+      </div>
+      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  header="Add Awards and Medals"
+  [(visible)]="display_add_award"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Award Name</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issue Date</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-4"
+      />
+      <div>
+        <p class="p-mb-2">Upload Image</p>
+        <input
+          class="p-mb-3"
+          type="file"
+          accept="image/*"
+          (change)="onFileChanged($event)"
+        />
+      </div>
+      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  header="Add Testimonials"
+  [(visible)]="display_add_testimony"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+      <div>
+        <p class="p-mb-2">Candidate's Role</p>
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="text"
+          class="p-mb-3"
+        />
+      </div>
+
+      <div>
+        <p class="p-mb-2">Candidate's Organisation</p>
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="text"
+          class="p-mb-3"
+        />
+        <p class="p-mb-2">Testimony</p>
+        <textarea
+          [rows]="5"
+          [cols]="30"
+          pInputTextarea
+          autoResize="autoResize"
+        ></textarea>
+      </div>
+
+      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+    </div>
+  </div>
+</p-dialog>
+
+<!-- add section ends -->
+
+<!-- edit section -->
+
+<p-dialog
+  header="Edit Certificate and Appreciation"
+  [(visible)]="display_edit_certi"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Certificate Name</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issue Date</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+      <div>
+        <p class="p-mb-2">Upload Certificate</p>
+        <input
+          class="p-mb-3"
+          type="file"
+          accept="image/*"
+          (change)="onFileChanged($event)"
+        />
+      </div>
+      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [(header)]="award_header"
+  [(visible)]="display_edit_award"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Award Name</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+
+      <p class="p-mb-2">Issue Date</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-4"
+      />
+      <div>
+        <p class="p-mb-2">Upload Image</p>
+        <input
+          class="p-mb-3"
+          type="file"
+          accept="image/*"
+          (change)="onFileChanged($event)"
+        />
+      </div>
+      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  header="Edit Testimonials"
+  [(visible)]="display_edit_testimony"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="p-d-flex p-jc-center">
+    <div>
+      <p class="p-mb-2">Issued By</p>
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        class="p-mb-3"
+      />
+      <div>
+        <p class="p-mb-2">Candidate's Role</p>
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="text"
+          class="p-mb-3"
+        />
+      </div>
+
+      <div>
+        <p class="p-mb-2">Candidate's Organisation</p>
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="text"
+          class="p-mb-3"
+        />
+        <p class="p-mb-2">Testimony</p>
+        <textarea
+          [rows]="5"
+          [cols]="30"
+          pInputTextarea
+          autoResize="autoResize"
+        ></textarea>
+      </div>
+
+      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+    </div>
+  </div>
+</p-dialog>
+<!-- edit section ends -->
+
+<!-- delete section -->
+<p-confirmDialog
+  [style]="{ width: '50vw', height: '50vh' }"
+  [baseZIndex]="10000"
+></p-confirmDialog>
+<!-- delete section ends -->
