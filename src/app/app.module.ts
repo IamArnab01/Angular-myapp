@@ -9,7 +9,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
@@ -31,6 +31,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     CardModule,
     TabViewModule,
     FormsModule,
+    ReactiveFormsModule,
     InputTextModule,
     TableModule,
     DialogModule,

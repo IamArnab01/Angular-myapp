@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
+import { FormBuilder } from '@angular/forms';
 import { Message } from 'primeng/api';
 
 @Component({
@@ -10,6 +11,9 @@ import { Message } from 'primeng/api';
 })
 export class OverviewComponent implements OnInit {
   msgs: Message[] = [];
+  certificateModel: any;
+  awardModel: any;
+  testimonialModel: any;
 
   text: string;
   name: string;
@@ -19,6 +23,7 @@ export class OverviewComponent implements OnInit {
   selectedFile: File;
 
   award_header: string;
+  certi_header: string;
 
   display_edit_certi: boolean;
   display_edit_award: boolean;
@@ -34,7 +39,7 @@ export class OverviewComponent implements OnInit {
 
   responsiveOptions: any;
 
-  cerficate: Object[] = [
+  certificate: Object[] = [
     {
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
@@ -211,7 +216,10 @@ export class OverviewComponent implements OnInit {
     },
   ];
 
-  constructor(private confirmationService: ConfirmationService) {
+  constructor(
+    private confirmationService: ConfirmationService,
+    private formBuilder: FormBuilder
+  ) {
     this.gender_data = {
       labels: ['Boys', 'Girls'],
       datasets: [
@@ -266,6 +274,26 @@ export class OverviewComponent implements OnInit {
         numScroll: 2,
       },
     ];
+
+    // form data's
+    this.certificateModel = this.formBuilder.group({
+      name: '',
+      issueDate: '',
+      organisation: '',
+    });
+
+    this.awardModel = this.formBuilder.group({
+      name: '',
+      issueDate: '',
+      organisation: '',
+    });
+
+    this.testimonialModel = this.formBuilder.group({
+      issueDate: '',
+      text: '',
+      role: '',
+      organisation: '',
+    });
   }
 
   // classes to toggle modals
@@ -290,8 +318,9 @@ export class OverviewComponent implements OnInit {
     this.award_header = award_type;
   }
 
-  editCertiModal() {
+  editCertiModal(name) {
     this.display_edit_certi = true;
+    this.certi_header = name;
   }
   //
 
@@ -303,9 +332,26 @@ export class OverviewComponent implements OnInit {
     // actual logic goes here
   }
 
-  onSubmit() {}
+  onAddCertificate(CertificateData) {
+    this.certificateModel.reset();
+    console.log(CertificateData);
+  }
 
-  onSubmitEdit() {}
+  onAddAward(AwardData) {
+    this.awardModel.reset();
+    console.log(AwardData);
+  }
+
+  onAddTestimonial(TestimonialData) {
+    this.testimonialModel.reset();
+    console.log(TestimonialData);
+  }
+
+  onEditCertificate(CertificateData) {}
+
+  onEditAward(AwardData) {}
+
+  onEditTestimonial(TestimonialData) {}
 
   delCerti(certi_name) {
     this.confirmationService.confirm({

@@ -30,7 +30,7 @@
       </div>
     </div>
     <p-carousel
-      [value]="cerficate"
+      [value]="certificate"
       [numVisible]="4"
       [numScroll]="1"
       [circular]="false"
@@ -44,14 +44,15 @@
             <p class="issue_by">Issued By : {{ certi_data.organisation }}</p>
             <p class="issue_on">Issued On: {{ certi_data.issueDate }}</p>
             <div style="margin-top: 0.75rem">
-              <div class="edit-icon th-edit-certi" (click)="editCertiModal()">
+              <div
+                class="edit-icon th-edit-certi"
+                (click)="editCertiModal(certi_data.name)"
+                style="margin-bottom: 0.5rem"
+              >
                 <i class="pi pi-user-edit" style="margin-right: 0.5rem"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div
-                class="delete-icon th-delete-certi"
-                (click)="delCerti(certi_data.name)"
-              >
+              <div class="delete-icon th-delete-certi" (click)="delCerti()">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash" style="margin-left: 0.5rem"></i>
               </div>
@@ -94,11 +95,11 @@
               <p class="award">Issued By: {{ item.organisation }}</p>
             </div>
             <div class="award-edit-delete-box">
-              <div class="edit-icon" (click)="editAwardsModal(award.type)">
+              <div class="edit-icon" (click)="editAwardsModal(item.name)">
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div class="delete-icon" (click)="delAward(award.type)">
+              <div class="delete-icon" (click)="delAward()">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash p-ml-2"></i>
               </div>
@@ -177,28 +178,33 @@
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form
+      [formGroup]="certificateModel"
+      (ngSubmit)="onAddCertificate(certificateModel.value)"
+    >
       <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="name"
+        [(ngModel)]="certificateModel.name"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
-
+      />
       <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="organisation"
+        [(ngModel)]="certificateModel.organisation"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
-
       <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="issueDate"
+        [(ngModel)]="certificateModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
       <div>
@@ -210,8 +216,8 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button label="Submit" class="modal-btn"></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 
@@ -222,12 +228,13 @@
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form [formGroup]="awardModel" (ngSubmit)="onAddAward(awardModel.value)">
       <p class="" style="margin-bottom: 0.5rem">Award Name</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="name"
+        [(ngModel)]="awardModel.name"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
@@ -235,12 +242,19 @@
       <input
         type="text"
         pInputText
-        [(ngModel)]="organisation"
+        [(ngModel)]="awardModel.organisation"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input type="text" pInputText [(ngModel)]="issueDate" class="p-mb-4" />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="awardModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
+        class="p-mb-4"
+      />
       <div>
         <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
         <input
@@ -250,12 +264,8 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button
-        label="Submit"
-        class="modal-btn"
-        (submit)="onSubmit()"
-      ></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 
@@ -266,12 +276,16 @@
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form
+      [formGroup]="testimonialModel"
+      (ngSubmit)="onAddTestimonial(testimonialModel.value)"
+    >
       <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="issueDate"
+        [(ngModel)]="testimonialModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
       <div>
@@ -279,7 +293,8 @@
         <input
           type="text"
           pInputText
-          [(ngModel)]="role"
+          [(ngModel)]="testimonialModel.role"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
         />
       </div>
@@ -289,7 +304,8 @@
         <input
           type="text"
           pInputText
-          [(ngModel)]="organisation"
+          [(ngModel)]="testimonialModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
         />
         <p class="" style="margin-bottom: 0.5rem">Testimony</p>
@@ -298,16 +314,13 @@
           [cols]="30"
           pInputTextarea
           autoResize="autoResize"
-          [(ngModel)]="text"
+          [(ngModel)]="testimonialModel.text"
+          [ngModelOptions]="{ standalone: true }"
         ></textarea>
       </div>
 
-      <p-button
-        label="Submit"
-        class="modal-btn"
-        (submit)="onSubmit()"
-      ></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 
@@ -316,18 +329,22 @@
 <!-- edit section -->
 
 <p-dialog
-  header="Edit Certificate and Appreciation"
+  header="{{ certi_header }}"
   [(visible)]="display_edit_certi"
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form
+      [formGroup]="certificateModel"
+      (ngSubmit)="onEditCertificate(certificateModel.value)"
+    >
       <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="name"
+        [(ngModel)]="certificateModel.name"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
@@ -335,7 +352,8 @@
       <input
         type="text"
         pInputText
-        [(ngModel)]="organisation"
+        [(ngModel)]="certificateModel.organisation"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
@@ -343,7 +361,8 @@
       <input
         type="text"
         pInputText
-        [(ngModel)]="issueDate"
+        [(ngModel)]="certificateModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
       <div>
@@ -355,12 +374,8 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button
-        label="Submit"
-        class="modal-btn"
-        (submit)="onSubmitEdit()"
-      ></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 
@@ -371,12 +386,13 @@
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form [formGroup]="awardModel" (ngSubmit)="onEditAward(awardModel.value)">
       <p class="" style="margin-bottom: 0.5rem">Award Name</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="name"
+        [(ngModel)]="awardModel.name"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
@@ -384,12 +400,19 @@
       <input
         type="text"
         pInputText
-        [(ngModel)]="organisation"
+        [(ngModel)]="awardModel.organisation"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input type="text" pInputText [(ngModel)]="issueDate" class="p-mb-4" />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="awardModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
+        class="p-mb-4"
+      />
       <div>
         <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
         <input
@@ -399,12 +422,8 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button
-        label="Submit"
-        class="modal-btn"
-        (submit)="onSubmitEdit()"
-      ></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 
@@ -415,12 +434,16 @@
   [baseZIndex]="10000"
 >
   <div class="modal-container">
-    <div>
+    <form
+      [formGroup]="testimonialModel"
+      (ngSubmit)="onEditTestimonial(testimonialModel.value)"
+    >
       <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
         type="text"
         pInputText
-        [(ngModel)]="organisation"
+        [(ngModel)]="testimonialModel.issueDate"
+        [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
       />
       <div>
@@ -428,7 +451,8 @@
         <input
           type="text"
           pInputText
-          [(ngModel)]="role"
+          [(ngModel)]="testimonialModel.role"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
         />
       </div>
@@ -438,7 +462,8 @@
         <input
           type="text"
           pInputText
-          [(ngModel)]="organisation"
+          [(ngModel)]="testimonialModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
         />
         <p class="" style="margin-bottom: 0.5rem">Testimony</p>
@@ -447,16 +472,13 @@
           [cols]="30"
           pInputTextarea
           autoResize="autoResize"
-          [(ngModel)]="text"
+          [(ngModel)]="testimonialModel.text"
+          [ngModelOptions]="{ standalone: true }"
         ></textarea>
       </div>
 
-      <p-button
-        label="Submit"
-        class="modal-btn"
-        (submit)="onSubmitEdit()"
-      ></p-button>
-    </div>
+      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+    </form>
   </div>
 </p-dialog>
 <!-- edit section ends -->
