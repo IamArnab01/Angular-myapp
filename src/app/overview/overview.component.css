@@ -10,6 +10,35 @@
   height: 16px;
   border-radius: 50%;
   border: 1.5px solid #ff6f00;
+  margin-right: 1rem;
+}
+
+.th-chart-header {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.certi-header-wraper,
+.award-header-wraper {
+  display: flex !important;
+  margin-bottom: 2rem !important;
+}
+
+.certi-header,
+.award-header,
+.testimonial-header {
+  display: flex !important;
+  align-items: center !important;
+  margin-right: 4rem;
+}
+
+.certi-slider-container,
+.award-slider-container,
+.testimonial-slider-container {
+  display: flex !important;
+  justify-content: space-around !important;
+  padding: 0.5rem !important;
 }
 
 .student,
@@ -27,7 +56,6 @@
   color: #666666;
   margin-top: 8px;
   margin-bottom: 8px;
-  /* letter-spacing: 1px; */
 }
 
 .certi-logo {
@@ -35,13 +63,26 @@
   width: 216px;
 }
 
-.award {
-  font-size: 22px;
-  color: #888888;
+.awards-content-box {
+  text-align: center !important;
+  margin-bottom: 1rem;
 }
+
+.award {
+  font-size: 20px;
+  color: #888888;
+  margin-bottom: 0 !important;
+  margin-top: 6px;
+}
+
 .card-details {
   border: 1px solid #f00625;
   padding: 16px;
+}
+
+.card-img-box {
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .card-image {
@@ -52,7 +93,7 @@
 
 .card-title {
   font-size: 18px;
-  min-height: 262px;
+  min-height: 305px;
   text-align: center;
 }
 
@@ -62,12 +103,17 @@
   font-size: 20px;
 }
 
+.add {
+  margin-right: 0.75rem !important;
+}
+
 .add-icon {
   background: #0852ba;
   cursor: pointer;
   padding: 8px 20px;
   color: #fff;
   border-radius: 10px;
+  margin-top: 0.5rem;
 }
 
 .edit-icon,
@@ -75,11 +121,25 @@
   cursor: pointer;
   color: #fff;
   border-radius: 10px;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.th-edit-certi,
+.th-delete-certi {
+  justify-content: center !important;
+}
+
+.award-edit-delete-box,
+.testimonial-edit-delete-box {
+  display: flex !important;
+  justify-content: space-evenly !important;
+  margin-top: 1.5rem;
 }
 
 .edit-icon {
   background: #689f38;
-  padding: 8px 28px;
+  padding: 8px 30px;
 }
 
 .delete-icon {
@@ -95,45 +155,23 @@
   background: #2196f3;
   border-radius: 8px;
   border: none !important;
-  /* border: 0px solid #fff; */
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
-.add-btn {
-  padding: 7px 30px;
+.modal-btn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.edit-btn {
-  padding: 7px 20px;
+.testimony-container {
+  display: flex !important;
+  margin-bottom: 2rem;
 }
 
-@media only screen and (max-width: 780px) {
-  .container {
-    padding: 0 15px;
-  }
-  .student,
-  .cerficate,
-  .award-title,
-  .testimonial {
-    font-size: 24px;
-    color: #1d9f87;
-  }
-  .award,
-  .certi-name {
-    font-size: 18px;
-  }
-  .circle {
-    width: 12px;
-    height: 12px;
-    margin-right: 10px !important;
-  }
-  .card-image {
-    width: 128px;
-    height: 128px;
-  }
-  .card-title {
-    font-size: 15px;
-  }
-  .card-details {
-    padding: 10px !important;
-  }
+/* for modals */
+
+.modal-container {
+  display: flex !important;
+  justify-content: center !important;
 }

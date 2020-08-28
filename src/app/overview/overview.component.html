@@ -1,11 +1,11 @@
 <div class="container">
   <!-- pie chart -->
-  <div class="p-mb-5">
-    <div class="p-d-flex p-ai-center p-mb-4">
-      <span class="circle p-mr-3"></span>
+  <div style="margin-bottom: 3rem">
+    <div class="th-chart-header">
+      <span class="circle"></span>
       <span class="student">Students</span>
     </div>
-    <div class="p-d-flex p-jc-evenly" style="flex-wrap: wrap !important">
+    <div class="p-d-flex p-jc-evenly">
       <div style="width: 560px">
         <p-chart type="pie" [data]="gender_data" [options]="options"></p-chart>
       </div>
@@ -18,45 +18,42 @@
 
   <!-- Cerficate  -->
 
-  <div class="p-mb-5">
-    <div class="p-d-flex p-mb-4">
-      <div class="p-d-flex p-ai-center p-mr-5">
-        <span class="circle p-mr-3"> </span>
+  <div style="margin-bottom: 3rem">
+    <div class="certi-header-wraper">
+      <div class="certi-header">
+        <span class="circle"> </span>
         <span class="testimonial"> Certificate and Appreciation</span>
       </div>
-      <div class="p-mt-2 add-icon" (click)="addCertiModal()">
-        <span class="p-mr-3 add"> Add</span>
+      <div class="add-icon" (click)="addCertiModal()">
+        <span class="add"> Add</span>
         <i class="pi pi-pencil"></i>
       </div>
     </div>
     <p-carousel
-      [value]="CertificateData"
+      [value]="cerficate"
       [numVisible]="4"
       [numScroll]="1"
       [circular]="false"
       [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-certi_data pTemplate="item">
-        <div class="p-d-flex p-jc-around p-p-2">
-          <div class="">
+        <div class="certi-slider-container">
+          <div>
             <img src="{{ certi_data.src }}" alt="" class="certi-logo" />
             <p class="certi-name">{{ certi_data.name }}</p>
             <p class="issue_by">Issued By : {{ certi_data.organisation }}</p>
             <p class="issue_on">Issued On: {{ certi_data.issueDate }}</p>
-            <div class="p-mt-3">
-              <div
-                class="p-d-flex p-ai-center p-jc-center edit-icon p-mb-2"
-                (click)="editCertiModal()"
-              >
-                <i class="pi pi-user-edit p-mr-2"></i>
+            <div style="margin-top: 0.75rem">
+              <div class="edit-icon th-edit-certi" (click)="editCertiModal()">
+                <i class="pi pi-user-edit" style="margin-right: 0.5rem"></i>
                 <span class="edit">Edit</span>
               </div>
               <div
-                class="p-d-flex p-ai-center p-jc-center delete-icon"
+                class="delete-icon th-delete-certi"
                 (click)="delCerti(certi_data.name)"
               >
                 <span class="delete">Delete</span>
-                <i class="pi pi-trash p-ml-2"></i>
+                <i class="pi pi-trash" style="margin-left: 0.5rem"></i>
               </div>
             </div>
           </div>
@@ -69,45 +66,39 @@
 
   <!-- Awards  -->
 
-  <div class="p-mb-5 p-mt-5">
-    <div class="p-d-flex p-mb-4">
-      <div class="p-d-flex p-ai-center p-mr-5">
-        <span class="circle p-mr-3"> </span>
+  <div style="margin-top: 4rem">
+    <div class="award-header-wraper">
+      <div class="award-header">
+        <span class="circle"> </span>
         <span class="testimonial"> Awards and Medals</span>
       </div>
-      <div class="p-mt-2 add-icon" (click)="addAwardsModal()">
-        <span class="p-mr-3 add"> Add</span>
+      <div class="add-icon" (click)="addAwardsModal()">
+        <span class="add"> Add</span>
         <i class="pi pi-pencil"></i>
       </div>
     </div>
     <p-carousel
-      [value]="AwardsData"
+      [value]="award"
       [numVisible]="3"
       [numScroll]="1"
       [circular]="false"
       [responsiveOptions]="responsiveOptions"
     >
-      <ng-template let-award pTemplate="item">
-        <div class="p-d-flex p-jc-around p-p-2">
-          <div class="">
-            <div class="p-text-center p-mb-3">
-              <img src="{{ award.src }}" alt="" />
-              <p class="p-mb-0 award">{{ award.type }}</p>
-              <p class="p-mb-0 award">Issue Date: {{ award.issueDate }}</p>
-              <p class="p-mb-0 award">Issued By: {{ award.issuedBy }}</p>
+      <ng-template let-item pTemplate="item">
+        <div class="award-slider-container">
+          <div>
+            <div class="awards-content-box">
+              <img src="{{ item.src }}" alt="" />
+              <p class="award">{{ item.name }}</p>
+              <p class="award">Issue Date: {{ item.issueDate }}</p>
+              <p class="award">Issued By: {{ item.organisation }}</p>
             </div>
-            <div class="p-d-flex p-jc-around p-mt-3">
-              <div
-                class="p-d-flex p-ai-center edit-icon"
-                (click)="editAwardsModal(award.type)"
-              >
+            <div class="award-edit-delete-box">
+              <div class="edit-icon" (click)="editAwardsModal(award.type)">
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div
-                class="p-d-flex p-ai-center delete-icon"
-                (click)="delAward(award.type)"
-              >
+              <div class="delete-icon" (click)="delAward(award.type)">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash p-ml-2"></i>
               </div>
@@ -123,47 +114,46 @@
   <!-- testimonial -->
 
   <div>
-    <div class="p-d-flex p-mb-4">
-      <div class="p-d-flex p-ai-center p-mr-5">
-        <span class="circle p-mr-3"> </span>
+    <div class="testimony-container">
+      <div class="testimonial-header">
+        <span class="circle"> </span>
         <span class="testimonial"> Testimonials</span>
       </div>
-      <div class="p-mt-2 add-icon" (click)="addTestimonyModal()">
-        <span class="p-mr-3 add"> Add</span>
+      <div class="add-icon" (click)="addTestimonyModal()">
+        <span class="add"> Add</span>
         <i class="pi pi-pencil"></i>
       </div>
     </div>
 
     <p-carousel
-      [value]="testimonial_data"
+      [value]="testimonial"
       [numVisible]="3"
       [numScroll]="1"
       [circular]="false"
       [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-data pTemplate="item">
-        <div class="p-d-flex p-jc-around p-p-2">
+        <div class="testimonial-slider-container">
           <div class="card-details">
-            <div class="p-d-flex p-jc-center">
+            <div class="card-img-box">
               <img src="{{ data.src }}" alt="" class="card-image" />
             </div>
             <div class="card-title">
-              <p class="p-mb-0">{{ data.content }}</p>
-              <p class="p-mb-0">~ {{ data.author }} ~</p>
-              <p class="p-mb-0">~~{{ data.role }}~~</p>
+              <p class="" style="margin-bottom: 0">{{ data.text }}</p>
+              <p class="" style="margin-bottom: 0">~ {{ data.name }} ~</p>
+              <p class="" style="margin-bottom: 0">
+                ~~{{ data.role }}@{{ data.organisation }}~~
+              </p>
+              <p class="" style="margin-bottom: 0">
+                {{ data.issueDate }}
+              </p>
             </div>
-            <div class="p-d-flex p-jc-around p-mt-3">
-              <div
-                class="p-d-flex p-ai-center edit-icon"
-                (click)="editTestimonyModal()"
-              >
+            <div class="testimonial-edit-delete-box">
+              <div class="edit-icon" (click)="editTestimonyModal()">
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div
-                class="p-d-flex p-ai-center delete-icon"
-                (click)="delTestimony()"
-              >
+              <div class="delete-icon" (click)="delTestimony()">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash p-ml-2"></i>
               </div>
@@ -186,44 +176,41 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Certificate Name</p>
+      <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="name"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="organisation"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issue Date</p>
+      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="issueDate"
+        style="margin-bottom: 0.75rem"
       />
       <div>
-        <p class="p-mb-2">Upload Certificate</p>
+        <p class="" style="margin-bottom: 0.5rem">Upload Certificate</p>
         <input
-          class="p-mb-3"
+          style="margin-bottom: 0.75rem"
           type="file"
           accept="image/*"
           (change)="onFileChanged($event)"
         />
       </div>
-      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+      <p-button label="Submit" class="modal-btn"></p-button>
     </div>
   </div>
 </p-dialog>
@@ -234,44 +221,40 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Award Name</p>
+      <p class="" style="margin-bottom: 0.5rem">Award Name</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="name"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="organisation"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issue Date</p>
-      <input
-        id="float-input"
-        type="text"
-        pInputText
-        [(ngModel)]="text"
-        class="p-mb-4"
-      />
+      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
+      <input type="text" pInputText [(ngModel)]="issueDate" class="p-mb-4" />
       <div>
-        <p class="p-mb-2">Upload Image</p>
+        <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
         <input
-          class="p-mb-3"
+          style="margin-bottom: 0.75rem"
           type="file"
           accept="image/*"
           (change)="onFileChanged($event)"
         />
       </div>
-      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+      <p-button
+        label="Submit"
+        class="modal-btn"
+        (submit)="onSubmit()"
+      ></p-button>
     </div>
   </div>
 </p-dialog>
@@ -282,46 +265,48 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="issueDate"
+        style="margin-bottom: 0.75rem"
       />
       <div>
-        <p class="p-mb-2">Candidate's Role</p>
+        <p class="" style="margin-bottom: 0.5rem">Candidate's Role</p>
         <input
-          id="float-input"
           type="text"
           pInputText
-          [(ngModel)]="text"
-          class="p-mb-3"
+          [(ngModel)]="role"
+          style="margin-bottom: 0.75rem"
         />
       </div>
 
       <div>
-        <p class="p-mb-2">Candidate's Organisation</p>
+        <p class="" style="margin-bottom: 0.5rem">Candidate's Organisation</p>
         <input
-          id="float-input"
           type="text"
           pInputText
-          [(ngModel)]="text"
-          class="p-mb-3"
+          [(ngModel)]="organisation"
+          style="margin-bottom: 0.75rem"
         />
-        <p class="p-mb-2">Testimony</p>
+        <p class="" style="margin-bottom: 0.5rem">Testimony</p>
         <textarea
           [rows]="5"
           [cols]="30"
           pInputTextarea
           autoResize="autoResize"
+          [(ngModel)]="text"
         ></textarea>
       </div>
 
-      <button class="p-mt-3 p-mb-5 add-btn">Add</button>
+      <p-button
+        label="Submit"
+        class="modal-btn"
+        (submit)="onSubmit()"
+      ></p-button>
     </div>
   </div>
 </p-dialog>
@@ -336,44 +321,45 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Certificate Name</p>
+      <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="name"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="organisation"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issue Date</p>
+      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="issueDate"
+        style="margin-bottom: 0.75rem"
       />
       <div>
-        <p class="p-mb-2">Upload Certificate</p>
+        <p class="" style="margin-bottom: 0.5rem">Upload Certificate</p>
         <input
-          class="p-mb-3"
+          style="margin-bottom: 0.75rem"
           type="file"
           accept="image/*"
           (change)="onFileChanged($event)"
         />
       </div>
-      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+      <p-button
+        label="Submit"
+        class="modal-btn"
+        (submit)="onSubmitEdit()"
+      ></p-button>
     </div>
   </div>
 </p-dialog>
@@ -384,44 +370,40 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Award Name</p>
+      <p class="" style="margin-bottom: 0.5rem">Award Name</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="name"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="organisation"
+        style="margin-bottom: 0.75rem"
       />
 
-      <p class="p-mb-2">Issue Date</p>
-      <input
-        id="float-input"
-        type="text"
-        pInputText
-        [(ngModel)]="text"
-        class="p-mb-4"
-      />
+      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
+      <input type="text" pInputText [(ngModel)]="issueDate" class="p-mb-4" />
       <div>
-        <p class="p-mb-2">Upload Image</p>
+        <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
         <input
-          class="p-mb-3"
+          style="margin-bottom: 0.75rem"
           type="file"
           accept="image/*"
           (change)="onFileChanged($event)"
         />
       </div>
-      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+      <p-button
+        label="Submit"
+        class="modal-btn"
+        (submit)="onSubmitEdit()"
+      ></p-button>
     </div>
   </div>
 </p-dialog>
@@ -432,46 +414,48 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
 >
-  <div class="p-d-flex p-jc-center">
+  <div class="modal-container">
     <div>
-      <p class="p-mb-2">Issued By</p>
+      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
       <input
-        id="float-input"
         type="text"
         pInputText
-        [(ngModel)]="text"
-        class="p-mb-3"
+        [(ngModel)]="organisation"
+        style="margin-bottom: 0.75rem"
       />
       <div>
-        <p class="p-mb-2">Candidate's Role</p>
+        <p class="" style="margin-bottom: 0.5rem">Candidate's Role</p>
         <input
-          id="float-input"
           type="text"
           pInputText
-          [(ngModel)]="text"
-          class="p-mb-3"
+          [(ngModel)]="role"
+          style="margin-bottom: 0.75rem"
         />
       </div>
 
       <div>
-        <p class="p-mb-2">Candidate's Organisation</p>
+        <p class="" style="margin-bottom: 0.5rem">Candidate's Organisation</p>
         <input
-          id="float-input"
           type="text"
           pInputText
-          [(ngModel)]="text"
-          class="p-mb-3"
+          [(ngModel)]="organisation"
+          style="margin-bottom: 0.75rem"
         />
-        <p class="p-mb-2">Testimony</p>
+        <p class="" style="margin-bottom: 0.5rem">Testimony</p>
         <textarea
           [rows]="5"
           [cols]="30"
           pInputTextarea
           autoResize="autoResize"
+          [(ngModel)]="text"
         ></textarea>
       </div>
 
-      <button class="p-mt-3 p-mb-5 edit-btn">Submit</button>
+      <p-button
+        label="Submit"
+        class="modal-btn"
+        (submit)="onSubmitEdit()"
+      ></p-button>
     </div>
   </div>
 </p-dialog>
