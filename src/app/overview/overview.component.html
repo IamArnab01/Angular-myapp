@@ -46,7 +46,13 @@
             <div style="margin-top: 0.75rem">
               <div
                 class="edit-icon th-edit-certi"
-                (click)="editCertiModal(certi_data.name)"
+                (click)="
+                  editCertiModal(
+                    certi_data.name,
+                    certi_data.organisation,
+                    certi_data.issueDate
+                  )
+                "
                 style="margin-bottom: 0.5rem"
               >
                 <i class="pi pi-user-edit" style="margin-right: 0.5rem"></i>
@@ -95,7 +101,12 @@
               <p class="award">Issued By: {{ item.organisation }}</p>
             </div>
             <div class="award-edit-delete-box">
-              <div class="edit-icon" (click)="editAwardsModal(item.name)">
+              <div
+                class="edit-icon"
+                (click)="
+                  editAwardsModal(item.name, item.issueDate, item.organisation)
+                "
+              >
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
@@ -150,7 +161,18 @@
               </p>
             </div>
             <div class="testimonial-edit-delete-box">
-              <div class="edit-icon" (click)="editTestimonyModal()">
+              <div
+                class="edit-icon"
+                (click)="
+                  editTestimonyModal(
+                    data.text,
+                    data.name,
+                    data.role,
+                    data.organisation,
+                    data.issueDate
+                  )
+                "
+              >
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
@@ -346,6 +368,7 @@
         [(ngModel)]="certificateModel.name"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ certificateModel.name }}"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issued By</p>
@@ -355,6 +378,7 @@
         [(ngModel)]="certificateModel.organisation"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ certificateModel.organisation }}"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
@@ -364,6 +388,7 @@
         [(ngModel)]="certificateModel.issueDate"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ certificateModel.issueDate }}"
       />
       <div>
         <p class="" style="margin-bottom: 0.5rem">Upload Certificate</p>
@@ -394,6 +419,7 @@
         [(ngModel)]="awardModel.name"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ awardModel.name }}"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issued By</p>
@@ -403,6 +429,7 @@
         [(ngModel)]="awardModel.organisation"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ awardModel.organisation }}"
       />
 
       <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
@@ -412,6 +439,7 @@
         [(ngModel)]="awardModel.issueDate"
         [ngModelOptions]="{ standalone: true }"
         class="p-mb-4"
+        value="{{ awardModel.issueDate }}"
       />
       <div>
         <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
@@ -442,9 +470,19 @@
       <input
         type="text"
         pInputText
+        [(ngModel)]="testimonialModel.name"
+        [ngModelOptions]="{ standalone: true }"
+        style="margin-bottom: 0.75rem"
+        value="{{ testimonialModel.name }}"
+      />
+      <p class="" style="margin-bottom: 0.5rem">Issued On</p>
+      <input
+        type="text"
+        pInputText
         [(ngModel)]="testimonialModel.issueDate"
         [ngModelOptions]="{ standalone: true }"
         style="margin-bottom: 0.75rem"
+        value="{{ testimonialModel.issueDate }}"
       />
       <div>
         <p class="" style="margin-bottom: 0.5rem">Candidate's Role</p>
@@ -454,6 +492,7 @@
           [(ngModel)]="testimonialModel.role"
           [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
+          value="{{ testimonialModel.role }}"
         />
       </div>
 
@@ -465,6 +504,7 @@
           [(ngModel)]="testimonialModel.organisation"
           [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
+          value="{{ testimonialModel.organisation }}"
         />
         <p class="" style="margin-bottom: 0.5rem">Testimony</p>
         <textarea
@@ -474,6 +514,7 @@
           autoResize="autoResize"
           [(ngModel)]="testimonialModel.text"
           [ngModelOptions]="{ standalone: true }"
+          value="{{ testimonialModel.text }}"
         ></textarea>
       </div>
 

@@ -293,6 +293,7 @@ export class OverviewComponent implements OnInit {
       text: '',
       role: '',
       organisation: '',
+      name: '',
     });
   }
 
@@ -309,18 +310,29 @@ export class OverviewComponent implements OnInit {
     this.display_add_certi = true;
   }
 
-  editTestimonyModal() {
+  editTestimonyModal(text, name, role, organisation, issueDate) {
     this.display_edit_testimony = true;
+    this.testimonialModel.issueDate = issueDate;
+    this.testimonialModel.name = name;
+    this.testimonialModel.text = text;
+    this.testimonialModel.role = role;
+    this.testimonialModel.organisation = organisation;
   }
 
-  editAwardsModal(award_type) {
+  editAwardsModal(name, issueDate, organisation) {
     this.display_edit_award = true;
-    this.award_header = award_type;
+    this.award_header = name;
+    this.awardModel.name = name;
+    this.awardModel.issueDate = issueDate;
+    this.awardModel.organisation = organisation;
   }
 
-  editCertiModal(name) {
+  editCertiModal(name, issueDate, organisation) {
     this.display_edit_certi = true;
     this.certi_header = name;
+    this.certificateModel.name = name;
+    this.certificateModel.issueDate = issueDate;
+    this.certificateModel.organisation = organisation;
   }
   //
 
