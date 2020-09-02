@@ -19,6 +19,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
 @NgModule({
   declarations: [AppComponent, routingComponents],
   imports: [
@@ -41,6 +42,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     MessagesModule,
     ConfirmDialogModule,
     InputTextareaModule,
+    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

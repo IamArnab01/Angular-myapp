@@ -5,6 +5,11 @@
   }
 }
 
+.th-chart-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .circle {
   width: 16px;
   height: 16px;
@@ -170,7 +175,26 @@
 
 /* for modals */
 
+.th-modal-input-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.th-upload-image {
+  padding: 10px;
+  border: none !important;
+}
+
+.th-modal-input-name {
+  font-size: 20px;
+  color: burlywood;
+}
+
+.th-input-div {
+  margin-bottom: 1.5rem;
+}
+
 .modal-container {
-  display: flex !important;
-  justify-content: center !important;
+  display: flex;
+  justify-content: center;
 }

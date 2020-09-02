@@ -5,7 +5,7 @@
       <span class="circle"></span>
       <span class="student">Students</span>
     </div>
-    <div class="p-d-flex p-jc-evenly">
+    <div class="th-chart-div">
       <div style="width: 560px">
         <p-chart type="pie" [data]="gender_data" [options]="options"></p-chart>
       </div>
@@ -104,7 +104,12 @@
               <div
                 class="edit-icon"
                 (click)="
-                  editAwardsModal(item.name, item.issueDate, item.organisation)
+                  editAwardsModal(
+                    item.src,
+                    item.name,
+                    item.issueDate,
+                    item.organisation
+                  )
                 "
               >
                 <i class="pi pi-user-edit p-mr-2"></i>
@@ -196,105 +201,127 @@
 <p-dialog
   header="Add Certificate and Appreciation"
   [(visible)]="display_add_certi"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
-  <div class="modal-container">
-    <form
-      [formGroup]="certificateModel"
-      (ngSubmit)="onAddCertificate(certificateModel.value)"
-    >
-      <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.name"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-      />
-      />
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.organisation"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-      />
-      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.issueDate"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-      />
-      <div>
-        <p class="" style="margin-bottom: 0.5rem">Upload Certificate</p>
+  <form
+    [formGroup]="certificateModel"
+    (ngSubmit)="onAddCertificate(certificateModel.value)"
+  >
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issue Date
+        </p>
+        <p-calendar
+          [(ngModel)]="certificateModel.issueDate"
+          [ngModelOptions]="{ standalone: true }"
+          [showIcon]="false"
+        ></p-calendar>
+      </div>
+
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Certificate Name
+        </p>
         <input
+          type="text"
+          pInputText
+          [(ngModel)]="certificateModel.name"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
-          type="file"
-          accept="image/*"
-          (change)="onFileChanged($event)"
         />
       </div>
-      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
-    </form>
-  </div>
+
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issued By
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="certificateModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+        />
+      </div>
+    </div>
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Upload Certificate
+        </p>
+        <input type="file" accept="image/*" (change)="onFileChanged($event)" />
+      </div>
+      <div class="th-input-div">
+        <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+      </div>
+    </div>
+  </form>
 </p-dialog>
 
 <p-dialog
   header="Add Awards and Medals"
   [(visible)]="display_add_award"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
-  <div class="modal-container">
-    <form [formGroup]="awardModel" (ngSubmit)="onAddAward(awardModel.value)">
-      <p class="" style="margin-bottom: 0.5rem">Award Name</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.name"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.organisation"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.issueDate"
-        [ngModelOptions]="{ standalone: true }"
-        class="p-mb-4"
-      />
-      <div>
-        <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
+  <form [formGroup]="awardModel" (ngSubmit)="onAddAward(awardModel.value)">
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issue Date
+        </p>
+        <p-calendar
+          [(ngModel)]="awardModel.issueDate"
+          [ngModelOptions]="{ standalone: true }"
+          [showIcon]="false"
+        ></p-calendar>
+      </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Award Name
+        </p>
         <input
+          type="text"
+          pInputText
+          [(ngModel)]="awardModel.name"
+          [ngModelOptions]="{ standalone: true }"
           style="margin-bottom: 0.75rem"
-          type="file"
-          accept="image/*"
-          (change)="onFileChanged($event)"
         />
       </div>
-      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
-    </form>
-  </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issued By
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="awardModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+        />
+      </div>
+    </div>
+
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Upload Image
+        </p>
+        <input type="file" accept="image/*" (change)="onFileChanged($event)" />
+      </div>
+      <div class="th-input-div">
+        <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+      </div>
+    </div>
+  </form>
 </p-dialog>
 
 <p-dialog
   header="Add Testimonials"
   [(visible)]="display_add_testimony"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
   <div class="modal-container">
@@ -302,35 +329,41 @@
       [formGroup]="testimonialModel"
       (ngSubmit)="onAddTestimonial(testimonialModel.value)"
     >
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
+      <p class="th-modal-input-name" style="margin-bottom: 0.5rem">Issued By</p>
       <input
         type="text"
         pInputText
         [(ngModel)]="testimonialModel.issueDate"
         [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
+        style="margin-bottom: 0.75rem; width: 100%"
       />
       <div>
-        <p class="" style="margin-bottom: 0.5rem">Candidate's Role</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Candidate's Role
+        </p>
         <input
           type="text"
           pInputText
           [(ngModel)]="testimonialModel.role"
           [ngModelOptions]="{ standalone: true }"
-          style="margin-bottom: 0.75rem"
+          style="margin-bottom: 0.75rem; width: 100%"
         />
       </div>
 
       <div>
-        <p class="" style="margin-bottom: 0.5rem">Candidate's Organisation</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Candidate's Organisation
+        </p>
         <input
           type="text"
           pInputText
           [(ngModel)]="testimonialModel.organisation"
           [ngModelOptions]="{ standalone: true }"
-          style="margin-bottom: 0.75rem"
+          style="margin-bottom: 0.75rem; width: 100%"
         />
-        <p class="" style="margin-bottom: 0.5rem">Testimony</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Testimony
+        </p>
         <textarea
           [rows]="5"
           [cols]="30"
@@ -338,6 +371,7 @@
           autoResize="autoResize"
           [(ngModel)]="testimonialModel.text"
           [ngModelOptions]="{ standalone: true }"
+          style="width: 100%"
         ></textarea>
       </div>
 
@@ -353,45 +387,56 @@
 <p-dialog
   header="{{ certi_header }}"
   [(visible)]="display_edit_certi"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
-  <div class="modal-container">
-    <form
-      [formGroup]="certificateModel"
-      (ngSubmit)="onEditCertificate(certificateModel.value)"
-    >
-      <p class="" style="margin-bottom: 0.5rem">Certificate Name</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.name"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-        value="{{ certificateModel.name }}"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.organisation"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-        value="{{ certificateModel.organisation }}"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="certificateModel.issueDate"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-        value="{{ certificateModel.issueDate }}"
-      />
-      <div>
-        <p class="" style="margin-bottom: 0.5rem">Upload Certificate</p>
+  <form
+    [formGroup]="certificateModel"
+    (ngSubmit)="onEditCertificate(certificateModel.value)"
+  >
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issue Date
+        </p>
+        <p-calendar
+          [(ngModel)]="certificateModel.issueDate"
+          [ngModelOptions]="{ standalone: true }"
+          [showIcon]="false"
+        ></p-calendar>
+      </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Certificate Name
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="certificateModel.name"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+          value="{{ certificateModel.name }}"
+        />
+      </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issued By
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="certificateModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+          value="{{ certificateModel.organisation }}"
+        />
+      </div>
+    </div>
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Upload Certificate
+        </p>
         <input
           style="margin-bottom: 0.75rem"
           type="file"
@@ -399,50 +444,63 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
-    </form>
-  </div>
+      <div class="th-input-div">
+        <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+      </div>
+    </div>
+  </form>
 </p-dialog>
 
 <p-dialog
   [(header)]="award_header"
   [(visible)]="display_edit_award"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
-  <div class="modal-container">
-    <form [formGroup]="awardModel" (ngSubmit)="onEditAward(awardModel.value)">
-      <p class="" style="margin-bottom: 0.5rem">Award Name</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.name"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-        value="{{ awardModel.name }}"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.organisation"
-        [ngModelOptions]="{ standalone: true }"
-        style="margin-bottom: 0.75rem"
-        value="{{ awardModel.organisation }}"
-      />
-
-      <p class="" style="margin-bottom: 0.5rem">Issue Date</p>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="awardModel.issueDate"
-        [ngModelOptions]="{ standalone: true }"
-        class="p-mb-4"
-        value="{{ awardModel.issueDate }}"
-      />
-      <div>
-        <p class="" style="margin-bottom: 0.5rem">Upload Image</p>
+  <form [formGroup]="awardModel" (ngSubmit)="onEditAward(awardModel.value)">
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issue Date
+        </p>
+        <p-calendar
+          [(ngModel)]="awardModel.issueDate"
+          [ngModelOptions]="{ standalone: true }"
+          [showIcon]="false"
+        ></p-calendar>
+      </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Award Name
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="awardModel.name"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+          value="{{ awardModel.name }}"
+        />
+      </div>
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Issued By
+        </p>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="awardModel.organisation"
+          [ngModelOptions]="{ standalone: true }"
+          style="margin-bottom: 0.75rem"
+          value="{{ awardModel.organisation }}"
+        />
+      </div>
+    </div>
+    <div class="th-modal-input-div">
+      <div class="th-input-div">
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Upload Image
+        </p>
         <input
           style="margin-bottom: 0.75rem"
           type="file"
@@ -450,15 +508,17 @@
           (change)="onFileChanged($event)"
         />
       </div>
-      <p-button type="submit" label="Submit" class="modal-btn"></p-button>
-    </form>
-  </div>
+      <div class="th-input-div">
+        <p-button type="submit" label="Submit" class="modal-btn"></p-button>
+      </div>
+    </div>
+  </form>
 </p-dialog>
 
 <p-dialog
   header="Edit Testimonials"
   [(visible)]="display_edit_testimony"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
 >
   <div class="modal-container">
@@ -466,7 +526,7 @@
       [formGroup]="testimonialModel"
       (ngSubmit)="onEditTestimonial(testimonialModel.value)"
     >
-      <p class="" style="margin-bottom: 0.5rem">Issued By</p>
+      <p class="th-modal-input-name" style="margin-bottom: 0.5rem">Issued By</p>
       <input
         type="text"
         pInputText
@@ -475,7 +535,7 @@
         style="margin-bottom: 0.75rem"
         value="{{ testimonialModel.name }}"
       />
-      <p class="" style="margin-bottom: 0.5rem">Issued On</p>
+      <p class="th-modal-input-name" style="margin-bottom: 0.5rem">Issued On</p>
       <input
         type="text"
         pInputText
@@ -485,7 +545,9 @@
         value="{{ testimonialModel.issueDate }}"
       />
       <div>
-        <p class="" style="margin-bottom: 0.5rem">Candidate's Role</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Candidate's Role
+        </p>
         <input
           type="text"
           pInputText
@@ -497,7 +559,9 @@
       </div>
 
       <div>
-        <p class="" style="margin-bottom: 0.5rem">Candidate's Organisation</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Candidate's Organisation
+        </p>
         <input
           type="text"
           pInputText
@@ -506,7 +570,9 @@
           style="margin-bottom: 0.75rem"
           value="{{ testimonialModel.organisation }}"
         />
-        <p class="" style="margin-bottom: 0.5rem">Testimony</p>
+        <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+          Testimony
+        </p>
         <textarea
           [rows]="5"
           [cols]="30"

@@ -319,7 +319,7 @@ export class OverviewComponent implements OnInit {
     this.testimonialModel.organisation = organisation;
   }
 
-  editAwardsModal(name, issueDate, organisation) {
+  editAwardsModal(image, name, issueDate, organisation) {
     this.display_edit_award = true;
     this.award_header = name;
     this.awardModel.name = name;
@@ -327,7 +327,7 @@ export class OverviewComponent implements OnInit {
     this.awardModel.organisation = organisation;
   }
 
-  editCertiModal(name, issueDate, organisation) {
+  editCertiModal(name, organisation, issueDate) {
     this.display_edit_certi = true;
     this.certi_header = name;
     this.certificateModel.name = name;
@@ -345,17 +345,14 @@ export class OverviewComponent implements OnInit {
   }
 
   onAddCertificate(CertificateData) {
-    this.certificateModel.reset();
     console.log(CertificateData);
   }
 
   onAddAward(AwardData) {
-    this.awardModel.reset();
     console.log(AwardData);
   }
 
   onAddTestimonial(TestimonialData) {
-    this.testimonialModel.reset();
     console.log(TestimonialData);
   }
 
