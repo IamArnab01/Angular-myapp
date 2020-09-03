@@ -20,6 +20,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
   declarations: [AppComponent, routingComponents],
   imports: [
@@ -43,6 +44,7 @@ import { CalendarModule } from 'primeng/calendar';
     ConfirmDialogModule,
     InputTextareaModule,
     CalendarModule,
+    FileUploadModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

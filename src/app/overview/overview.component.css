@@ -198,3 +198,8 @@
   display: flex;
   justify-content: center;
 }
+
+.th-del-confirm-msg {
+  font-size: 20px;
+  margin-bottom: 1rem;
+}

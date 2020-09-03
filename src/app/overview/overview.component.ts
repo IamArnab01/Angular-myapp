@@ -33,6 +33,14 @@ export class OverviewComponent implements OnInit {
   display_add_award: boolean;
   display_add_testimony: boolean;
 
+  display_delete_certi: boolean;
+  display_delete_award: boolean;
+  display_delete_testimony: boolean;
+
+  confirm_del_certi: boolean;
+  confirm_del_award: boolean;
+  confirm_del_testimoial: boolean;
+
   gender_data: any;
   dept_data: any;
   options: any;
@@ -41,24 +49,28 @@ export class OverviewComponent implements OnInit {
 
   certificate: Object[] = [
     {
+      id: '1',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '11/2/2019',
       organisation: 'abcd',
     },
     {
+      id: '2',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '12/7/2018',
       organisation: 'adfd',
     },
     {
+      id: '3',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '23/12/2018 ',
       organisation: 'qwert',
     },
     {
+      id: '4',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '4/6/2017',
@@ -66,24 +78,28 @@ export class OverviewComponent implements OnInit {
     },
     //
     {
+      id: '5',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '11/2/2019',
       organisation: 'abcd',
     },
     {
+      id: '6',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '12/7/2018',
       organisation: 'adfd',
     },
     {
+      id: '7',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '23/12/2018 ',
       organisation: 'qwert',
     },
     {
+      id: '8',
       src: 'assets/certi.jpg',
       name: 'Certificate of blah blah',
       issueDate: '4/6/2017',
@@ -93,24 +109,28 @@ export class OverviewComponent implements OnInit {
 
   award: Object[] = [
     {
+      id: '1',
       src: 'assets/medal-1.png',
       name: '2016 International Mathematics Olypdiad',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '2',
       src: 'assets/trophy.png',
       name: 'Winner of 2019-20 Inter IIT Hackathon',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '3',
       src: 'assets/medal.png',
       name: 'Best Volenteer of the year 2019, NSS IIT Roorkee',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '4',
       src: 'assets/award.png',
       name: 'Top 20 performer of AWS certified architect exam 2019',
       issueDate: '1/2/2003',
@@ -118,24 +138,28 @@ export class OverviewComponent implements OnInit {
     },
     //
     {
+      id: '5',
       src: 'assets/medal-1.png',
       name: '2016 International Mathematics Olypdiad',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '6',
       src: 'assets/trophy.png',
       name: 'Winner of 2019-20 Inter IIT Hackathon',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '7',
       src: 'assets/medal.png',
       name: 'Best Volenteer of the year 2019, NSS IIT Roorkee',
       issueDate: '1/2/2003',
       organisation: 'asdfgh',
     },
     {
+      id: '8',
       src: 'assets/award.png',
       name: 'Top 20 performer of AWS certified architect exam 2019',
       issueDate: '1/2/2003',
@@ -145,6 +169,7 @@ export class OverviewComponent implements OnInit {
 
   testimonial: Object[] = [
     {
+      id: '1',
       src:
         'https://images.pexels.com/photos/739407/pexels-photo-739407.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -155,6 +180,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '2',
       src:
         'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -165,6 +191,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '3',
       src:
         'https://images.pexels.com/photos/50594/sea-bay-waterfront-beach-50594.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -175,6 +202,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '4',
       src:
         'https://images.pexels.com/photos/1433052/pexels-photo-1433052.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -185,6 +213,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '5',
       src:
         'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -195,6 +224,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '6',
       src:
         'https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -205,6 +235,7 @@ export class OverviewComponent implements OnInit {
       issueDate: '1/2/2020',
     },
     {
+      id: '7',
       src:
         'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200',
       text:
@@ -297,7 +328,7 @@ export class OverviewComponent implements OnInit {
     });
   }
 
-  // classes to toggle modals
+  // Add section
   addTestimonyModal() {
     this.display_add_testimony = true;
   }
@@ -308,40 +339,6 @@ export class OverviewComponent implements OnInit {
 
   addCertiModal() {
     this.display_add_certi = true;
-  }
-
-  editTestimonyModal(text, name, role, organisation, issueDate) {
-    this.display_edit_testimony = true;
-    this.testimonialModel.issueDate = issueDate;
-    this.testimonialModel.name = name;
-    this.testimonialModel.text = text;
-    this.testimonialModel.role = role;
-    this.testimonialModel.organisation = organisation;
-  }
-
-  editAwardsModal(image, name, issueDate, organisation) {
-    this.display_edit_award = true;
-    this.award_header = name;
-    this.awardModel.name = name;
-    this.awardModel.issueDate = issueDate;
-    this.awardModel.organisation = organisation;
-  }
-
-  editCertiModal(name, organisation, issueDate) {
-    this.display_edit_certi = true;
-    this.certi_header = name;
-    this.certificateModel.name = name;
-    this.certificateModel.issueDate = issueDate;
-    this.certificateModel.organisation = organisation;
-  }
-  //
-
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
-
-  onUploadCerti() {
-    // actual logic goes here
   }
 
   onAddCertificate(CertificateData) {
@@ -355,6 +352,9 @@ export class OverviewComponent implements OnInit {
   onAddTestimonial(TestimonialData) {
     console.log(TestimonialData);
   }
+  //
+
+  // Edit section
 
   onEditCertificate(CertificateData) {}
 
@@ -362,71 +362,80 @@ export class OverviewComponent implements OnInit {
 
   onEditTestimonial(TestimonialData) {}
 
-  delCerti(certi_name) {
-    this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: certi_name,
-      icon: 'pi pi-info-circle',
-      accept: () => {
-        this.msgs = [
-          { severity: 'info', summary: 'Confirmed', detail: 'Record deleted' },
-        ];
-      },
-      reject: () => {
-        this.msgs = [
-          {
-            severity: 'info',
-            summary: 'Rejected',
-            detail: 'You have rejected',
-          },
-        ];
-      },
-    });
+  editTestimonyModal(testimonialData) {
+    this.display_edit_testimony = true;
+    this.testimonialModel.issueDate = testimonialData.issueDate;
+    this.testimonialModel.name = testimonialData.name;
+    this.testimonialModel.text = testimonialData.text;
+    this.testimonialModel.role = testimonialData.role;
+    this.testimonialModel.organisation = testimonialData.organisation;
   }
 
-  delAward(award_name) {
-    this.confirmationService.confirm({
-      message: 'Do you want to delete this  record?',
-      header: award_name,
-      icon: 'pi pi-info-circle',
-      accept: () => {
-        this.msgs = [
-          { severity: 'info', summary: 'Confirmed', detail: 'Record deleted' },
-        ];
-      },
-      reject: () => {
-        this.msgs = [
-          {
-            severity: 'info',
-            summary: 'Rejected',
-            detail: 'You have rejected',
-          },
-        ];
-      },
-    });
+  editAwardsModal(awardData) {
+    this.display_edit_award = true;
+    this.award_header = awardData.name;
+    this.awardModel.name = awardData.name;
+    this.awardModel.issueDate = awardData.issueDate;
+    this.awardModel.organisation = awardData.organisation;
   }
 
-  delTestimony() {
-    this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: 'Delete Confirmation',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-        this.msgs = [
-          { severity: 'info', summary: 'Confirmed', detail: 'Record deleted' },
-        ];
-      },
-      reject: () => {
-        this.msgs = [
-          {
-            severity: 'info',
-            summary: 'Rejected',
-            detail: 'You have rejected',
-          },
-        ];
-      },
-    });
+  editCertiModal(certiData) {
+    this.display_edit_certi = true;
+    this.certi_header = certiData.name;
+    this.certificateModel.name = certiData.name;
+    this.certificateModel.issueDate = certiData.issueDate;
+    this.certificateModel.organisation = certiData.organisation;
+    console.log(certiData);
   }
+  //
+
+  // delete section
+
+  confirm_delete_certificate(event) {
+    this.confirm_del_certi = event;
+    console.log(this.confirm_del_certi);
+    if (event == true || event == false) {
+      this.display_delete_certi = false;
+      console.log('delete_certi modal is closed');
+    }
+  }
+  confirm_delete_award(event) {
+    this.confirm_del_award = event;
+    console.log(this.confirm_del_award);
+    if (event == true || event == false) {
+      this.display_delete_award = false;
+      console.log('delete_award modal is closed');
+    }
+  }
+  confirm_delete_testimonial(event) {
+    this.confirm_del_testimoial = event;
+    console.log(this.confirm_del_testimoial);
+    if (event == true || event == false) {
+      this.display_delete_testimony = false;
+      console.log('delete_testimony modal is closed');
+    }
+  }
+
+  delCerti(certiData) {
+    this.display_delete_certi = true;
+    this.certi_header = certiData.name;
+    let index = certiData.id;
+    console.log(index);
+  }
+
+  delAward(awardData) {
+    this.display_delete_award = true;
+    this.award_header = awardData.name;
+    let index = awardData.id;
+    console.log(index);
+  }
+
+  delTestimony(testimonialData) {
+    this.display_delete_testimony = true;
+    let index = testimonialData.id;
+    console.log(index);
+  }
+  //
 
   ngOnInit() {}
 }

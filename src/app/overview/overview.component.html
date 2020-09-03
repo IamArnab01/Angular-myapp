@@ -46,19 +46,16 @@
             <div style="margin-top: 0.75rem">
               <div
                 class="edit-icon th-edit-certi"
-                (click)="
-                  editCertiModal(
-                    certi_data.name,
-                    certi_data.organisation,
-                    certi_data.issueDate
-                  )
-                "
+                (click)="editCertiModal(certi_data)"
                 style="margin-bottom: 0.5rem"
               >
                 <i class="pi pi-user-edit" style="margin-right: 0.5rem"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div class="delete-icon th-delete-certi" (click)="delCerti()">
+              <div
+                class="delete-icon th-delete-certi"
+                (click)="delCerti(certi_data)"
+              >
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash" style="margin-left: 0.5rem"></i>
               </div>
@@ -101,21 +98,11 @@
               <p class="award">Issued By: {{ item.organisation }}</p>
             </div>
             <div class="award-edit-delete-box">
-              <div
-                class="edit-icon"
-                (click)="
-                  editAwardsModal(
-                    item.src,
-                    item.name,
-                    item.issueDate,
-                    item.organisation
-                  )
-                "
-              >
+              <div class="edit-icon" (click)="editAwardsModal(item)">
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div class="delete-icon" (click)="delAward()">
+              <div class="delete-icon" (click)="delAward(item)">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash p-ml-2"></i>
               </div>
@@ -166,22 +153,11 @@
               </p>
             </div>
             <div class="testimonial-edit-delete-box">
-              <div
-                class="edit-icon"
-                (click)="
-                  editTestimonyModal(
-                    data.text,
-                    data.name,
-                    data.role,
-                    data.organisation,
-                    data.issueDate
-                  )
-                "
-              >
+              <div class="edit-icon" (click)="editTestimonyModal(data)">
                 <i class="pi pi-user-edit p-mr-2"></i>
                 <span class="edit">Edit</span>
               </div>
-              <div class="delete-icon" (click)="delTestimony()">
+              <div class="delete-icon" (click)="delTestimony(data)">
                 <span class="delete">Delete</span>
                 <i class="pi pi-trash p-ml-2"></i>
               </div>
@@ -251,7 +227,7 @@
         <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
           Upload Certificate
         </p>
-        <input type="file" accept="image/*" (change)="onFileChanged($event)" />
+        <input type="file" accept="image/*" />
       </div>
       <div class="th-input-div">
         <p-button type="submit" label="Submit" class="modal-btn"></p-button>
@@ -309,7 +285,7 @@
         <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
           Upload Image
         </p>
-        <input type="file" accept="image/*" (change)="onFileChanged($event)" />
+        <input type="file" accept="image/*" />
       </div>
       <div class="th-input-div">
         <p-button type="submit" label="Submit" class="modal-btn"></p-button>
@@ -375,6 +351,15 @@
         ></textarea>
       </div>
 
+      <div class="th-modal-input-div">
+        <div class="th-input-div">
+          <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+            Upload Image
+          </p>
+          <input style="margin-bottom: 0.75rem" type="file" accept="image/*" />
+        </div>
+      </div>
+
       <p-button type="submit" label="Submit" class="modal-btn"></p-button>
     </form>
   </div>
@@ -437,12 +422,7 @@
         <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
           Upload Certificate
         </p>
-        <input
-          style="margin-bottom: 0.75rem"
-          type="file"
-          accept="image/*"
-          (change)="onFileChanged($event)"
-        />
+        <input style="margin-bottom: 0.75rem" type="file" accept="image/*" />
       </div>
       <div class="th-input-div">
         <p-button type="submit" label="Submit" class="modal-btn"></p-button>
@@ -501,12 +481,7 @@
         <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
           Upload Image
         </p>
-        <input
-          style="margin-bottom: 0.75rem"
-          type="file"
-          accept="image/*"
-          (change)="onFileChanged($event)"
-        />
+        <input style="margin-bottom: 0.75rem" type="file" accept="image/*" />
       </div>
       <div class="th-input-div">
         <p-button type="submit" label="Submit" class="modal-btn"></p-button>
@@ -582,6 +557,18 @@
           [ngModelOptions]="{ standalone: true }"
           value="{{ testimonialModel.text }}"
         ></textarea>
+        <div class="th-modal-input-div">
+          <div class="th-input-div">
+            <p class="th-modal-input-name" style="margin-bottom: 0.5rem">
+              Upload Image
+            </p>
+            <input
+              style="margin-bottom: 0.75rem"
+              type="file"
+              accept="image/*"
+            />
+          </div>
+        </div>
       </div>
 
       <p-button type="submit" label="Submit" class="modal-btn"></p-button>
@@ -591,8 +578,77 @@
 <!-- edit section ends -->
 
 <!-- delete section -->
-<p-confirmDialog
-  [style]="{ width: '50vw', height: '50vh' }"
+<p-dialog
+  header="{{ certi_header }}"
+  [(visible)]="display_delete_certi"
+  [style]="{ width: '60vw' }"
   [baseZIndex]="10000"
-></p-confirmDialog>
+>
+  <div class="th-del-confirm-msg">Do you Really want to delete this data?</div>
+  <div>
+    <button
+      pButton
+      label="Delete"
+      style="margin-right: 1.5rem"
+      icon="pi pi-trash"
+      (click)="confirm_delete_certificate(true)"
+    ></button>
+    <button
+      pButton
+      label="Cancel"
+      icon="pi pi-times"
+      (click)="confirm_delete_certificate(false)"
+    ></button>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [(header)]="award_header"
+  [(visible)]="display_delete_award"
+  [style]="{ width: '60vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="th-del-confirm-msg">Do you Really want to delete this data?</div>
+  <div>
+    <button
+      pButton
+      label="Delete"
+      style="margin-right: 1.5rem"
+      class="p-button-warning"
+      icon="pi pi-trash"
+      (click)="confirm_delete_award(true)"
+    ></button>
+    <button
+      pButton
+      label="Cancel"
+      icon="pi pi-times"
+      (click)="confirm_delete_award(false)"
+    ></button>
+  </div>
+</p-dialog>
+
+<p-dialog
+  header="Edit Testimonials"
+  [(visible)]="display_delete_testimony"
+  [style]="{ width: '60vw' }"
+  [baseZIndex]="10000"
+>
+  <div class="th-del-confirm-msg">Do you Really want to delete this data?</div>
+  <div>
+    <button
+      pButton
+      label="Delete"
+      style="margin-right: 1.5rem"
+      icon="pi pi-trash"
+      class="p-button-warning"
+      (click)="confirm_delete_testimonial(true)"
+    ></button>
+    <button
+      pButton
+      label="Cancel"
+      icon="pi pi-times"
+      (click)="confirm_delete_testimonial(false)"
+    ></button>
+  </div>
+</p-dialog>
 <!-- delete section ends -->
