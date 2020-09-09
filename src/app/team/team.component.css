@@ -1,24 +1,23 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  background: beige;
+.th-top-container,
+.th-info-wraper {
+  display: flex;
+  justify-content: space-between;
 }
 
-.container-2 {
-  max-width: 1200px;
-  margin: 0 auto;
+.th-info-wraper {
+  align-items: center;
 }
 
-.card-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.th-mail-div,
+.th-call-div {
+  display: flex;
+  flex-direction: column;
 }
 
 .card-wraper {
   min-height: 450px;
+  display: flex;
+  justify-content: center;
 }
 
 .icon-box,
@@ -30,6 +29,7 @@
 }
 .icon-box {
   padding: 15px 20px;
+  margin-right: 1rem;
 }
 .mail-icon-box {
   padding: 15px;
@@ -39,6 +39,7 @@
   font-size: 24px;
   font-weight: 600;
   color: #363636;
+  margin-right: 1rem;
 }
 
 .mail,
@@ -52,6 +53,13 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.data-box {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .name {
@@ -75,6 +83,16 @@
   color: #999;
 }
 
+.social-icon-div {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.connected-icon-box-div {
+  display: flex;
+}
+
 .header {
   font-size: 40px;
   color: #333;
@@ -88,4 +106,106 @@
   color: #fff;
   font-size: 22px;
   border-radius: 8px;
+}
+
+@media only screen and (min-width: 1120px) {
+  .th-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background: beige;
+  }
+  .container-2,
+  .container-google {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  .card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .google-map {
+    /* width: 1200px; */
+    height: 500px;
+  }
+}
+.social-icon {
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 780px) {
+  .map-container {
+    width: 100% !important;
+  }
+  .th-container {
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: aliceblue;
+  }
+  .th-top-container {
+    flex-wrap: wrap;
+  }
+  .container-2 {
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+  .google-map {
+    width: 100%;
+    height: 420px;
+  }
+  .card-wraper {
+    flex-wrap: wrap;
+  }
+  .header {
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2.5px solid burlywood;
+    margin: 0 15px;
+  }
+  .social-icon {
+    font-size: 28px;
+  }
+
+  .icon-box,
+  .mail-icon-box {
+    width: 50px;
+    height: 50px;
+  }
+
+  .mail-icon-box {
+    padding: 10px;
+  }
+
+  .icon-box {
+    padding: 10px 16px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .mail,
+  .contact {
+    font-size: 16px;
+  }
+
+  .th-info-wraper {
+    margin-bottom: 20px;
+    margin-right: 2.5px;
+  }
+  .name {
+    font-size: 20px;
+  }
+  .th-connected {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .th-connected-title {
+    margin-bottom: 10px;
+  }
 }
