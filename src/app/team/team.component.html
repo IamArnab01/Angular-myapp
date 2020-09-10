@@ -1,34 +1,119 @@
-<div class="th-container">
-  <div class="th-top-container">
-    <div class="th-info-wraper">
-      <div class="mail-icon-box p-mr-4">
-        <i class="social-icon fa fa-envelope-o" aria-hidden="true"></i>
-      </div>
-      <div class="th-mail-div">
-        <span class="title">Email us:</span>
-        <span class="mail">info@expidense.com</span>
-      </div>
-    </div>
-    <div class="th-info-wraper">
-      <div class="icon-box">
-        <i
-          class="social-icon fa fa-volume-control-phone"
-          aria-hidden="true"
-        ></i>
-      </div>
-      <div class="th-call-div">
-        <span class="title">Call us:</span>
-        <span class="contact">12345 67890</span>
-      </div>
-    </div>
-    <div class="media-box th-info-wraper th-connected">
-      <span class="title th-connected-title">Stay connected with us</span>
-      <div class="connected-icon-box-div">
-        <div class="icon-box">
-          <i class="social-icon fa fa-facebook" aria-hidden="true"></i>
+<div class="p-grid th-grid">
+  <div class="p-col">
+    <div class="th-container">
+      <div class="p-d-flex p-jc-between">
+        <div class="p-col-4 p-d-flex p-ai-center">
+          <div class="mail-icon-box p-mr-4">
+            <i class="social-icon fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+          <div class="p-d-flex p-flex-column">
+            <span class="title">Email us:</span>
+            <span class="mail">info@expidense.com</span>
+          </div>
         </div>
-        <div class="icon-box">
-          <i class="social-icon fa fa-twitter" aria-hidden="true"></i>
+        <div class="p-col-4 p-d-flex p-ai-center">
+          <div class="icon-box">
+            <i
+              class="social-icon fa fa-volume-control-phone"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div class="p-d-flex p-flex-column">
+            <span class="title">Call us:</span>
+            <span class="contact">12345 67890</span>
+          </div>
+        </div>
+        <div class="p-col-4 p-ai-center p-d-flex">
+          <span class="title">Stay connected with us</span>
+          <div class="p-d-flex">
+            <div class="icon-box">
+              <i class="social-icon fa fa-facebook" aria-hidden="true"></i>
+            </div>
+            <div class="icon-box">
+              <i class="social-icon fa fa-twitter" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="p-d-flex p-jc-center">
+      <h2 class="header">Meet The Team</h2>
+    </div>
+    <!--  -->
+
+    <div class="card-wraper">
+      <div
+        style="width: 360px; text-align: center"
+        *ngFor="let data of CEO_Data"
+      >
+        <img src="{{ data.src }}" alt="" class="card-img" />
+        <div class="p-text-center p-mt-3">
+          <p class="name">{{ data.name }}</p>
+          <p class="post">{{ data.post }}</p>
+          <p class="email">{{ data.email }}</p>
+        </div>
+
+        <div class="social-icon-div">
+          <span>
+            <i
+              class="social-icon fa fa-facebook-square"
+              aria-hidden="true"
+              style="color: '#3b5998'"
+            ></i>
+          </span>
+          <span>
+            <i
+              class="social-icon fa fa-twitter"
+              aria-hidden="true"
+              style="color: '#00acee'"
+            ></i>
+          </span>
+          <span>
+            <i
+              class="social-icon fa fa-linkedin-square"
+              aria-hidden="true"
+              style="color: '#0e76a8'"
+            ></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-wraper">
+      <div
+        style="width: 360px; text-align: center"
+        *ngFor="let data of Team_Data"
+      >
+        <img src="{{ data.src }}" alt="" class="card-img" />
+        <div class="p-text-center p-mt-3">
+          <p class="name">{{ data.name }}</p>
+          <p class="post">{{ data.post }}</p>
+          <p class="email">{{ data.email }}</p>
+        </div>
+
+        <div class="social-icon-div">
+          <span>
+            <i
+              class="social-icon fa fa-facebook-square"
+              aria-hidden="true"
+              style="color: '#3b5998'"
+            ></i>
+          </span>
+          <span>
+            <i
+              class="social-icon fa fa-twitter"
+              aria-hidden="true"
+              style="color: '#00acee'"
+            ></i>
+          </span>
+          <span>
+            <i
+              class="social-icon fa fa-linkedin-square"
+              aria-hidden="true"
+              style="color: '#0e76a8'"
+            ></i>
+          </span>
         </div>
       </div>
     </div>
@@ -37,91 +122,8 @@
 
 <br />
 <br />
-
-<!-- <div class="container-google">
-  <google-map class="google-map"></google-map>
-</div> -->
-
-<div class="container-2">
-  <h2 class="header">Meet The Team</h2>
-</div>
 
 <!-- team cards -->
-<div class="card-container">
-  <div class="card-wraper">
-    <div style="width: 360px; text-align: center" *ngFor="let data of CEO_Data">
-      <img src="{{ data.src }}" alt="" class="card-img" />
-      <div class="data-box">
-        <p class="name">{{ data.name }}</p>
-        <p class="post">{{ data.post }}</p>
-        <p class="email">{{ data.email }}</p>
-      </div>
 
-      <div class="social-icon-div">
-        <span>
-          <i
-            class="social-icon fa fa-facebook-square"
-            aria-hidden="true"
-            style="color: '#3b5998'"
-          ></i>
-        </span>
-        <span>
-          <i
-            class="social-icon fa fa-twitter"
-            aria-hidden="true"
-            style="color: '#00acee'"
-          ></i>
-        </span>
-        <span>
-          <i
-            class="social-icon fa fa-linkedin-square"
-            aria-hidden="true"
-            style="color: '#0e76a8'"
-          ></i>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card-container">
-  <div class="card-wraper">
-    <div
-      style="width: 360px; text-align: center"
-      *ngFor="let data of Team_Data"
-    >
-      <img src="{{ data.src }}" alt="" class="card-img" />
-      <div class="data-box">
-        <p class="name">{{ data.name }}</p>
-        <p class="post">{{ data.post }}</p>
-        <p class="email">{{ data.email }}</p>
-      </div>
-
-      <div class="social-icon-div">
-        <span>
-          <i
-            class="social-icon fa fa-facebook-square"
-            aria-hidden="true"
-            style="color: '#3b5998'"
-          ></i>
-        </span>
-        <span>
-          <i
-            class="social-icon fa fa-twitter"
-            aria-hidden="true"
-            style="color: '#00acee'"
-          ></i>
-        </span>
-        <span>
-          <i
-            class="social-icon fa fa-linkedin-square"
-            aria-hidden="true"
-            style="color: '#0e76a8'"
-          ></i>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
 <br />
 <br />
